@@ -38,17 +38,17 @@
 }
 
 [data-theme="light"] {
-  --bg-primary:    #ffffff;
-  --bg-surface:    #f7f7f7;
-  --bg-card:       #ffffff;
-  --bg-elevated:   #efefef;
-  --text-primary:  #0c0c0c;
-  --text-secondary:#666666;
-  --border:        rgba(0, 0, 0, 0.09);
-  --border-hover:  rgba(2, 1, 34, 0.4);
-  --nav-bg:        rgba(255, 255, 255, 0.94);
-  --shadow:        0 4px 28px rgba(0, 0, 0, 0.09);
-  --shadow-lg:     0 16px 56px rgba(0, 0, 0, 0.12);
+  --bg-primary:    #eef0f8;
+  --bg-surface:    #e8eaf4;
+  --bg-card:       rgba(255, 255, 255, 0.55);
+  --bg-elevated:   rgba(255, 255, 255, 0.75);
+  --text-primary:  #0a0a1a;
+  --text-secondary:#4a4a6a;
+  --border:        rgba(2, 1, 34, 0.10);
+  --border-hover:  rgba(2, 1, 34, 0.35);
+  --nav-bg:        rgba(238, 240, 248, 0.85);
+  --shadow:        0 4px 24px rgba(2, 1, 34, 0.08);
+  --shadow-lg:     0 16px 48px rgba(2, 1, 34, 0.13);
   --accent:        #020122;
   --accent-hover:  #010018;
   --accent-light:  #0d0a4a;
@@ -2991,6 +2991,69 @@ a.contact__detail-value:hover { color: var(--accent); }
 [data-theme="light"] .blog-cat--wp {
   --cat-color: #020122;
   --cat-bg: rgba(2, 1, 34, 0.10);
+}
+
+/* ── Glassmorphism cards ── */
+[data-theme="light"] .service-card,
+[data-theme="light"] .skill-card,
+[data-theme="light"] .project-card,
+[data-theme="light"] .timeline__card,
+[data-theme="light"] .cert-card,
+[data-theme="light"] .blog-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 32px rgba(2, 1, 34, 0.08), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+[data-theme="light"] .service-card:hover,
+[data-theme="light"] .skill-card:hover,
+[data-theme="light"] .project-card:hover,
+[data-theme="light"] .blog-card:hover {
+  background: rgba(255, 255, 255, 0.80);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 20px 56px rgba(2, 1, 34, 0.13), inset 0 1px 0 rgba(255,255,255,1);
+}
+
+/* Nav bar glass */
+[data-theme="light"] .site-header {
+  background: rgba(238, 240, 248, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Hero section gradient background */
+[data-theme="light"] .hero {
+  background: linear-gradient(145deg, #dde0f5 0%, #eef0f8 45%, #e8eaf4 100%);
+}
+
+/* Section backgrounds */
+[data-theme="light"] .about    { background: #eef0f8; }
+[data-theme="light"] .skills   { background: linear-gradient(160deg, #e8eaf4 0%, #eef0f8 100%); }
+[data-theme="light"] .experience { background: #e8eaf4; }
+[data-theme="light"] .education  { background: #eef0f8; }
+[data-theme="light"] .projects   { background: linear-gradient(160deg, #e8eaf4 0%, #f0f1f8 100%); }
+[data-theme="light"] .contact    { background: #e8eaf4; }
+
+/* Contact form glass */
+[data-theme="light"] .contact__form-wrap {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 32px rgba(2, 1, 34, 0.08);
+}
+[data-theme="light"] .form__input,
+[data-theme="light"] .form__textarea {
+  background: rgba(255, 255, 255, 0.70);
+  border-color: rgba(2, 1, 34, 0.12);
+}
+[data-theme="light"] .form__input:focus,
+[data-theme="light"] .form__textarea:focus {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(2, 1, 34, 0.08);
 }
 
 /* Footer — contact icons and back-to-top match social icon style */
