@@ -2007,7 +2007,7 @@ a.contact__detail-value:hover { color: var(--accent); }
    18. RESPONSIVE — MOBILE (≤ 768px)
 ───────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .hero__role-line { font-size: 30px; }
+  .hero__role-line { font-size: 42px; font-weight: 900; }
   .section { padding: 80px 0; }
   .section__header { margin-bottom: 50px; }
   .nav__links { display: none; }
@@ -2035,7 +2035,7 @@ a.contact__detail-value:hover { color: var(--accent); }
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
   .hero__name { white-space: normal; }
-  .hero__role-line { font-size: 24px; }
+  .hero__role-line { font-size: 36px; font-weight: 900; }
   .hero__ctas { flex-direction: column; align-items: stretch; }
   .btn { width: 100%; justify-content: center; }
   .about__stats { grid-template-columns: 1fr 1fr; gap: 10px; }
