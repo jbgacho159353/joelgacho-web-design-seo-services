@@ -45,10 +45,15 @@
   --text-primary:  #0c0c0c;
   --text-secondary:#666666;
   --border:        rgba(0, 0, 0, 0.09);
-  --border-hover:  rgba(248, 94, 0, 0.5);
+  --border-hover:  rgba(2, 1, 34, 0.4);
   --nav-bg:        rgba(255, 255, 255, 0.94);
   --shadow:        0 4px 28px rgba(0, 0, 0, 0.09);
   --shadow-lg:     0 16px 56px rgba(0, 0, 0, 0.12);
+  --accent:        #020122;
+  --accent-hover:  #010018;
+  --accent-light:  #0d0a4a;
+  --accent-glow:   rgba(2, 1, 34, 0.10);
+  --gradient:      linear-gradient(135deg, #020122 0%, #0d0a4a 100%);
 }
 
 
@@ -2464,7 +2469,7 @@ a.contact__detail-value:hover { color: var(--accent); }
 }
 .post-body p:first-of-type { font-size: 1.1rem; color: var(--text-primary); }
 .post-body strong { color: var(--text-primary); }
-.post-body a { color: var(--accent); border-bottom: 1px solid rgba(248, 94, 0,0.3); transition: border-color var(--transition); }
+.post-body a { color: var(--accent); border-bottom: 1px solid var(--accent-glow); transition: border-color var(--transition); }
 .post-body a:hover { border-color: var(--accent); }
 
 .post-body ul,
