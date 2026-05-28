@@ -3005,4 +3005,7 @@ a.contact__detail-value:hover { color: var(--accent); }
   color: #fff;
   box-shadow: 0 10px 24px rgba(248, 94, 0, 0.38);
 }
+[data-theme="light"] .footer__heart {
+  color: #F85E00 !important;
+}
 
