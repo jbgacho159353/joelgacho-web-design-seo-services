@@ -1771,7 +1771,7 @@ a.contact__detail-value:hover { color: var(--accent); }
   gap: 6px;
 }
 .footer__heart {
-  color: var(--accent);
+  color: #F85E00;
   font-size: 1rem;
   line-height: 1;
 }
