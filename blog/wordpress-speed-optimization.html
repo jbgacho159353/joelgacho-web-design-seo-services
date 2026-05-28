@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 Reasons Your WordPress Site Is Slow | Joel Gacho Blog</title>
+  <meta name="description" content="Discover the 5 most common reasons WordPress sites are slow — and the practical fixes I use to boost client PageSpeed scores by 40%.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://joelgacho.com/blog/wordpress-speed-optimization.html">
+  <meta property="og:title" content="5 Reasons Your WordPress Site Is Slow (And How to Fix Them)">
+  <meta property="og:description" content="The 5 most common culprits behind slow WordPress sites — and how to fix each one.">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/webp" href="../assets/joel-gacho-favicon.webp">
+  <link rel="apple-touch-icon" href="../assets/joel-gacho-favicon.webp">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- Reading progress bar -->
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader" role="banner">
+    <nav class="nav container" aria-label="Main navigation">
+      <a href="../index.html" class="nav__logo" aria-label="Pixlurk — Home">
+        <img src="../assets/joel-gacho-logo.webp"
+             alt="Joel Gacho"
+             class="logo logo--dark" width="50" height="10">
+        <img src="../assets/joel-gacho-logo-white-bg.webp" alt="Joel Gacho" class="logo logo--light" width="50" height="10">
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="../index.html#about"      class="nav__link">About</a></li>
+        <li><a href="../index.html#skills"     class="nav__link">Skills</a></li>
+        <li><a href="../index.html#experience" class="nav__link">Experience</a></li>
+        <li><a href="../index.html#projects"   class="nav__link">Projects</a></li>
+        <li><a href="../blog.html"             class="nav__link is-active">Blog</a></li>
+        <li><a href="../index.html#contact"    class="nav__link nav__link--cta">Contact</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+          <svg class="icon icon--sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon icon--moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="hamburger__bar"></span><span class="hamburger__bar"></span><span class="hamburger__bar"></span>
+        </button>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <ul class="mobile-menu__links" role="list">
+        <li><a href="../index.html#about"      class="mobile-menu__link">About</a></li>
+        <li><a href="../index.html#skills"     class="mobile-menu__link">Skills</a></li>
+        <li><a href="../index.html#experience" class="mobile-menu__link">Experience</a></li>
+        <li><a href="../index.html#projects"   class="mobile-menu__link">Projects</a></li>
+        <li><a href="../blog.html"             class="mobile-menu__link">Blog</a></li>
+        <li><a href="../index.html#contact"    class="mobile-menu__link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Post Hero -->
+    <div class="post-hero post-hero--wp blog-cat--wp" role="banner">
+      <div class="post-hero__glow" aria-hidden="true"></div>
+      <div class="post-hero__inner">
+        <span class="post-hero__cat">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          WordPress
+        </span>
+        <h1 class="post-hero__title">5 Reasons Your WordPress Site Is Slow (And How to Fix Them)</h1>
+        <div class="post-hero__meta">
+          <span class="post-hero__meta-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+            Joel B. Gacho
+          </span>
+          <span class="post-hero__meta-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            May 20, 2026
+          </span>
+          <span class="post-hero__meta-item">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            6 min read
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post Content -->
+    <div class="container">
+      <div class="post-layout">
+
+        <!-- Article -->
+        <article class="post-body" id="postBody">
+
+          <div class="post-featured-img">
+            <img src="../assets/5 Reasons your website is slow-Featured-image.webp"
+                 alt="5 Reasons Your WordPress Site Is Slow And How to Fix Them"
+                 loading="eager" decoding="async" width="1200" height="675">
+          </div>
+
+          <p>
+            A slow website is one of the most damaging things that can happen to your online presence. Google uses page speed as a ranking signal, and visitors bounce within 3 seconds if a page doesn't load. After optimising 50+ WordPress sites, I keep seeing the same five culprits — and every single one is fixable.
+          </p>
+
+          <h2 id="reason-1">1. Unoptimised Images</h2>
+          <p>Images are almost always the number one offender. A single uncompressed hero image can be 4–8 MB — enough to tank your PageSpeed score on its own. Most WordPress sites ship images exactly as they're uploaded: full-resolution, wrong format, zero compression.</p>
+          <div class="post-steps">
+            <div class="post-step">
+              <div class="post-step__num">1</div>
+              <div class="post-step__content">
+                <h4>Convert to WebP</h4>
+                <p>WebP images are 25–35% smaller than JPEG with the same visual quality. Use a plugin like <strong>ShortPixel</strong> or <strong>Imagify</strong> to bulk-convert on upload.</p>
+              </div>
+            </div>
+            <div class="post-step">
+              <div class="post-step__num">2</div>
+              <div class="post-step__content">
+                <h4>Add lazy loading</h4>
+                <p>Add <code>loading="lazy"</code> to every <code>&lt;img&gt;</code> below the fold. WordPress 5.5+ does this automatically, but always verify your theme isn't overriding it.</p>
+              </div>
+            </div>
+            <div class="post-step">
+              <div class="post-step__num">3</div>
+              <div class="post-step__content">
+                <h4>Set correct dimensions</h4>
+                <p>Never upload a 4000×3000px image when it displays at 800×600px. Resize before upload, or use Elementor's built-in image size controls.</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 id="reason-2">2. Too Many Plugins</h2>
+          <p>Plugins are WordPress's superpower — and its greatest weakness. Every active plugin adds PHP execution time, database queries, and often its own CSS/JS files loaded on every page. I routinely audit sites running 40+ plugins with 10 doing effectively the same job.</p>
+          <div class="post-tip">
+            <div class="post-tip__icon">💡</div>
+            <div class="post-tip__text"><strong>Rule of thumb:</strong> If a plugin adds a feature you only use on one page, consider a code snippet instead. Use the <strong>Query Monitor</strong> plugin to identify which plugins are adding the most database queries.</div>
+          </div>
+          <p>Audit your plugins quarterly. Deactivate anything you haven't used in 60 days. Consolidate overlapping functionality — one good SEO plugin (Rank Math) beats three mediocre ones.</p>
+
+          <h2 id="reason-3">3. No Caching Setup</h2>
+          <p>Without caching, WordPress generates every page dynamically from scratch — running PHP, querying the database, and assembling HTML on every single request. For a 200-visitor-per-day site, that's 200 full page builds per day.</p>
+          <p>Proper caching serves pre-built HTML files directly, reducing server response time from 800ms+ to under 100ms.</p>
+          <blockquote>
+            <p>"Caching is the single highest-ROI optimisation on any WordPress site. It's free, takes 10 minutes to set up, and cuts TTFB by 60–80% immediately."</p>
+          </blockquote>
+          <p>My go-to stack: <strong>WP Rocket</strong> for page caching + <strong>Cloudflare</strong> free tier for CDN and edge caching. If budget is tight, <strong>W3 Total Cache</strong> or <strong>LiteSpeed Cache</strong> (on compatible hosts) are solid free alternatives.</p>
+
+          <h2 id="reason-4">4. Wrong Hosting Plan</h2>
+          <p>Shared hosting at $3/month puts your site on a server alongside thousands of others. When a neighbouring site gets a traffic spike, your response times suffer — this is called the "noisy neighbour" problem. No amount of optimisation fully overcomes a slow server.</p>
+          <ul>
+            <li><strong>Budget tier</strong> — SiteGround Shared or Hostinger: fine for simple brochure sites with under 500 visits/day</li>
+            <li><strong>Mid tier</strong> — Cloudways (DigitalOcean 2GB): excellent price-performance for growing businesses</li>
+            <li><strong>Performance tier</strong> — Kinsta or WP Engine: managed WordPress hosting with server-level caching, ideal for high-traffic or WooCommerce</li>
+          </ul>
+          <p>Most of my client sites that were "unfixably slow" simply needed to move from shared hosting to a $12/month Cloudways droplet. The difference is night and day.</p>
+
+          <h2 id="reason-5">5. Render-Blocking Resources</h2>
+          <p>CSS and JavaScript files in the <code>&lt;head&gt;</code> block the browser from rendering anything until they fully download and parse. Elementor, WooCommerce, and most themes load a stack of scripts this way by default.</p>
+          <div class="post-steps">
+            <div class="post-step">
+              <div class="post-step__num">1</div>
+              <div class="post-step__content">
+                <h4>Defer non-critical JS</h4>
+                <p>Add <code>defer</code> or <code>async</code> to scripts that don't need to run before the page renders. WP Rocket handles this automatically.</p>
+              </div>
+            </div>
+            <div class="post-step">
+              <div class="post-step__num">2</div>
+              <div class="post-step__content">
+                <h4>Minify CSS and JS</h4>
+                <p>Remove whitespace and comments from stylesheets and scripts. Most caching plugins include a minification option — enable it and test thoroughly.</p>
+              </div>
+            </div>
+            <div class="post-step">
+              <div class="post-step__num">3</div>
+              <div class="post-step__content">
+                <h4>Load Elementor CSS inline</h4>
+                <p>In Elementor → Settings → Advanced, enable "Improved Asset Loading" and set CSS Print Method to "Internal Embedding" for pages with few elements.</p>
+              </div>
+            </div>
+          </div>
+
+          <hr class="post-divider">
+
+          <h2 id="quick-wins">Quick Wins Recap</h2>
+          <ul>
+            <li>Install <strong>ShortPixel</strong> and bulk-convert all images to WebP today</li>
+            <li>Audit your plugins — aim for under 20 active</li>
+            <li>Install <strong>WP Rocket</strong> and enable page caching + minification</li>
+            <li>Add <strong>Cloudflare</strong> free tier in front of your site</li>
+            <li>Run a speed test at <strong>PageSpeed Insights</strong> before and after — track your score</li>
+          </ul>
+
+          <div class="post-tip">
+            <div class="post-tip__icon">🚀</div>
+            <div class="post-tip__text"><strong>Need a professional audit?</strong> I offer full page speed reviews for WordPress sites. <a href="../index.html#contact">Get in touch</a> and I'll identify your specific bottlenecks and a prioritised fix list.</div>
+          </div>
+
+          <!-- Tags -->
+          <div class="post-tags" role="list" aria-label="Post tags">
+            <a href="../blog.html" class="post-tag">WordPress</a>
+            <a href="../blog.html" class="post-tag">Page Speed</a>
+            <a href="../blog.html" class="post-tag">WP Rocket</a>
+            <a href="../blog.html" class="post-tag">Web Performance</a>
+            <a href="../blog.html" class="post-tag">Elementor</a>
+          </div>
+
+          <!-- Author -->
+          <div class="post-author">
+            <div class="post-author__avatar">
+              <img src="../assets/Hero-image.webp" alt="Joel B. Gacho" loading="lazy">
+            </div>
+            <div>
+              <h3 class="post-author__name">Joel B. Gacho</h3>
+              <p class="post-author__role">WordPress Web Designer &amp; SEO Specialist</p>
+              <p class="post-author__bio">3+ years building and optimising WordPress sites for local service businesses in the Philippines and beyond. Obsessed with page speed, clean code, and results that actually move the needle.</p>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="post-sidebar" aria-label="Article sidebar">
+          <nav class="post-toc" aria-label="Table of contents">
+            <p class="post-toc__title">In This Article</p>
+            <ul class="post-toc__list" role="list">
+              <li><a href="#reason-1" class="post-toc__link">1. Unoptimised Images</a></li>
+              <li><a href="#reason-2" class="post-toc__link">2. Too Many Plugins</a></li>
+              <li><a href="#reason-3" class="post-toc__link">3. No Caching Setup</a></li>
+              <li><a href="#reason-4" class="post-toc__link">4. Wrong Hosting Plan</a></li>
+              <li><a href="#reason-5" class="post-toc__link">5. Render-Blocking Resources</a></li>
+              <li><a href="#quick-wins" class="post-toc__link">Quick Wins Recap</a></li>
+            </ul>
+          </nav>
+          <div class="post-share">
+            <p class="post-share__title">Share This Post</p>
+            <div class="post-share__btns">
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://joelgacho.com/blog/wordpress-speed-optimization.html" target="_blank" rel="noopener noreferrer" class="share-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                Share on LinkedIn
+              </a>
+              <a href="https://twitter.com/intent/tweet?text=5%20Reasons%20Your%20WordPress%20Site%20Is%20Slow%20%E2%80%94%20and%20How%20to%20Fix%20Them&url=https://joelgacho.com/blog/wordpress-speed-optimization.html" target="_blank" rel="noopener noreferrer" class="share-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.629zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Share on X
+              </a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Related Posts -->
+  <section class="related-posts" aria-labelledby="related-heading">
+    <div class="container">
+      <div class="section__header" style="margin-bottom:48px;">
+        <span class="section__label">Keep Reading</span>
+        <h2 id="related-heading" class="section__title">Related Articles</h2>
+        <div class="section__divider" aria-hidden="true"></div>
+      </div>
+      <div class="related-posts__grid" role="list">
+
+        <article class="blog-card blog-cat--seo" role="listitem">
+          <a href="on-page-seo-checklist.html" class="blog-card__img-link" aria-label="Read: On-Page SEO Checklist">
+            <div class="blog-card__thumb">
+              <img src="../assets/the-one-page-seo checklist_featured-image.webp" alt="The On-Page SEO Checklist Every Local Business Website Needs" class="blog-card__img" loading="lazy">
+              <span class="blog-card__cat">SEO</span>
+            </div>
+          </a>
+          <div class="blog-card__body">
+            <div class="blog-card__meta"><span class="blog-card__meta-item">May 10, 2026</span><span class="blog-card__meta-item">8 min read</span></div>
+            <h3 class="blog-card__title">The On-Page SEO Checklist Every Local Business Website Needs</h3>
+            <p class="blog-card__excerpt">A step-by-step checklist I use for every client site — title tags, schema markup, page speed, and more.</p>
+            <a href="on-page-seo-checklist.html" class="blog-card__link">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </article>
+
+        <article class="blog-card blog-cat--design" role="listitem">
+          <a href="elementor-pro-honest-review.html" class="blog-card__img-link" aria-label="Read: Elementor Pro honest review">
+            <div class="blog-card__thumb">
+              <img src="../assets/why-i-build-every-client-with-elementorpro_featured-image.webp" alt="Why I Build Every Client Site With Elementor Pro" class="blog-card__img" loading="lazy">
+              <span class="blog-card__cat">Web Design</span>
+            </div>
+          </a>
+          <div class="blog-card__body">
+            <div class="blog-card__meta"><span class="blog-card__meta-item">May 2, 2026</span><span class="blog-card__meta-item">5 min read</span></div>
+            <h3 class="blog-card__title">Why I Build Every Client Site With Elementor Pro (And When I Don't)</h3>
+            <p class="blog-card__excerpt">After 50+ WordPress builds, here's my honest take on Elementor Pro — including the edge cases where I reach for something else.</p>
+            <a href="elementor-pro-honest-review.html" class="blog-card__link">Read Article <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </article>
+
+        <article class="blog-card blog-cat--wp" role="listitem" style="grid-column: span 1;">
+          <div class="blog-card__body" style="padding:32px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;justify-content:center;min-height:200px;">
+            <span class="section__label" style="margin-bottom:0;">Coming Soon</span>
+            <h3 class="blog-card__title" style="color:var(--text-secondary);">More WordPress tips on the way…</h3>
+            <a href="../index.html#contact" class="blog-card__link">Get notified <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="footer" role="contentinfo">
+
+    <div class="footer__main">
+      <div class="container">
+        <div class="footer__grid">
+
+          <div class="footer__brand">
+            <a href="../index.html" class="footer__logo-wrap" aria-label="Pixlurk — Home">
+              <img src="../assets/joel-gacho-logo.webp" alt="Joel Gacho" width="70" height="10" loading="lazy" decoding="async">
+            </a>
+            <p class="footer__tagline">Crafting fast, beautiful WordPress websites that rank on Google and convert visitors into clients.</p>
+            <div class="footer__social" role="list" aria-label="Social media links">
+              <a href="#" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" role="listitem">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="#" class="footer__social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer" role="listitem">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+              <a href="#" class="footer__social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer" role="listitem">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              </a>
+              <a href="#" class="footer__social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer" role="listitem">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+              </a>
+            </div>
+            <div class="footer__status">
+              <span class="footer__status-dot" aria-hidden="true"></span>
+              Available for new projects
+            </div>
+          </div>
+
+          <div class="footer__col">
+            <h3 class="footer__col-title">Quick Links</h3>
+            <ul class="footer__list" role="list">
+              <li><a href="../index.html#about">About Me</a></li>
+              <li><a href="../index.html#skills">Skills</a></li>
+              <li><a href="../index.html#experience">Experience</a></li>
+              <li><a href="../index.html#projects">Projects</a></li>
+              <li><a href="../index.html#education">Education</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col">
+            <h3 class="footer__col-title">Resources</h3>
+            <ul class="footer__list" role="list">
+              <li><a href="../blog.html">Blog</a></li>
+              <li><a href="../index.html#contact">Contact</a></li>
+              <li><a href="https://drive.google.com/file/d/1_r2CJj7t70PWOIaFLUMwP8pe3ujoTzgO/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download CV</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col">
+            <h3 class="footer__col-title">Get In Touch</h3>
+            <ul class="footer__contact-list" role="list">
+              <li class="footer__contact-item">
+                <span class="footer__contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                </span>
+                <span>Bacolod City, Negros Occidental<br>Philippines 6100</span>
+              </li>
+              <li class="footer__contact-item">
+                <span class="footer__contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </span>
+                <a href="mailto:joelgacho.ffseo@gmail.com" class="footer__email">joelgacho.ffseo@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__divider"></div>
+
+    <div class="footer__bottom-wrap">
+      <div class="container footer__bottom">
+        <p class="footer__copy">&copy; <span id="currentYear"></span> Joel B. Gacho &middot; Pixlurk. All rights reserved.</p>
+        <p class="footer__made">Built with <span class="footer__heart" aria-label="love">&hearts;</span> in Bacolod City</p>
+        <a href="#" class="footer__back-top" aria-label="Back to top">
+          <svg viewBox="0 0 24 24" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </a>
+      </div>
+    </div>
+
+  </footer>
+
+  <script src="../js/main.js" defer></script>
+  <script>
+    /* Reading progress bar */
+    const bar  = document.getElementById('readingProgress');
+    const body = document.getElementById('postBody');
+    window.addEventListener('scroll', () => {
+      const rect    = body.getBoundingClientRect();
+      const total   = body.offsetHeight - window.innerHeight;
+      const scrolled = Math.max(0, -rect.top);
+      bar.style.width = Math.min(100, (scrolled / total) * 100) + '%';
+    }, { passive: true });
+
+    /* TOC active link */
+    const tocLinks = document.querySelectorAll('.post-toc__link');
+    const headings = document.querySelectorAll('.post-body h2[id]');
+    const tocObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          tocLinks.forEach(l => l.classList.remove('is-active'));
+          const active = document.querySelector(`.post-toc__link[href="#${entry.target.id}"]`);
+          if (active) active.classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -75% 0px' });
+    headings.forEach(h => tocObserver.observe(h));
+  </script>
+</body>
+</html>
