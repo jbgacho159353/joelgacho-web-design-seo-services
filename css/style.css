@@ -2041,7 +2041,7 @@ a.contact__detail-value:hover { color: var(--accent); }
   .about__stats { grid-template-columns: 1fr 1fr; gap: 10px; }
   .timeline__card { padding: 18px; }
   .hero__badge { display: block; padding: 8px 12px; }
-  .hero__badge--top    { top: 5%; left: -2%; }
+  .hero__badge--top    { top: 5%; left: -20px; }
   .hero__badge--bottom { bottom: 5%; right: -2%; }
   .hero__badge-num  { font-size: 1.1rem; }
   .hero__badge-text { font-size: 0.65rem; }
