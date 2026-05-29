@@ -475,6 +475,14 @@ strong { color: var(--text-primary); font-weight: 600; }
 .hero__typed {
   color: var(--accent);
   position: relative;
+  display: inline-block;
+  transition: opacity 0.42s ease, transform 0.42s ease;
+}
+/* Mid-swap state: roll up and fade out; releasing the class fades the
+   next role back down into place */
+.hero__typed.is-swapping {
+  opacity: 0;
+  transform: translateY(-0.4em);
 }
 
 /* Blinking cursor */

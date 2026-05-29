@@ -38,9 +38,10 @@ themeToggle.addEventListener('click', () => {
 
 
 /* ─────────────────────────────────────────────────────
-   2. TYPING / ROLE ANIMATION
-   Types each role character by character, erases right
-   to left, then types the next — reeni-wp.laralink.com
+   2. ROLE ANIMATION
+   Swaps the whole role with a smooth fade + slide: the
+   current word rolls up and fades out, the next fades
+   back down into place. No character-by-character typing.
 ───────────────────────────────────────────────────── */
 const typedEl = document.getElementById('typedRole');
 
@@ -51,38 +52,31 @@ if (typedEl) {
     'Elementor Pro Expert',
   ];
 
-  let roleIdx    = 0;
-  let charIdx    = 0;
-  let isDeleting = false;
+  const HOLD = 2200;   // ms each role stays fully visible
+  const FADE = 420;    // ms for the swap — must match the CSS transition
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function typeRole() {
-    const current = roles[roleIdx];
+  let roleIdx = 0;
 
-    if (isDeleting) {
-      typedEl.textContent = current.substring(0, charIdx - 1);
-      charIdx--;
-    } else {
-      typedEl.textContent = current.substring(0, charIdx + 1);
-      charIdx++;
-    }
+  // Show the first role immediately
+  typedEl.textContent = roles[0];
+  typedEl.setAttribute('aria-label', roles[0]);
 
-    typedEl.setAttribute('aria-label', typedEl.textContent);
+  function cycleRole() {
+    if (!reduce) typedEl.classList.add('is-swapping');
 
-    let delay = isDeleting ? 55 : 100;
-
-    if (!isDeleting && charIdx === current.length) {
-      delay = 2200;
-      isDeleting = true;
-    } else if (isDeleting && charIdx === 0) {
-      isDeleting = false;
+    // After the fade-out, swap text and let it fade back in
+    setTimeout(function () {
       roleIdx = (roleIdx + 1) % roles.length;
-      delay = 450;
-    }
+      typedEl.textContent = roles[roleIdx];
+      typedEl.setAttribute('aria-label', roles[roleIdx]);
+      if (!reduce) typedEl.classList.remove('is-swapping');
+    }, reduce ? 0 : FADE);
 
-    setTimeout(typeRole, delay);
+    setTimeout(cycleRole, HOLD + (reduce ? 0 : FADE));
   }
 
-  setTimeout(typeRole, 800);
+  setTimeout(cycleRole, HOLD);
 }
 
 
