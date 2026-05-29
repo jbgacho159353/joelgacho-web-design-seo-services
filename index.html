@@ -60,7 +60,7 @@
     <link rel="preload" as="image" href="assets/Hero-image.webp" fetchpriority="high" />
 
     <!-- ═══ STYLESHEET ═══ -->
-    <link rel="stylesheet" href="css/style.css?v=11" />
+    <link rel="stylesheet" href="css/style.css?v=12" />
 
     <!-- ═══ GOOGLE ANALYTICS 4 — replace G-XXXXXXXXXX with your Measurement ID ═══ -->
     <!--
@@ -383,6 +383,10 @@
           <div class="hero__visual" data-animate="fade-left">
             <div class="hero__img-frame">
               <div class="hero__img-blob" aria-hidden="true"></div>
+              <!-- Orbiting dot — mirrors the 404 "0" planet, circling the portrait -->
+              <div class="hero__orbit" aria-hidden="true">
+                <div class="hero__orbit-spin"><span class="hero__planet"></span></div>
+              </div>
               <img
                 src="assets/Hero-image.webp"
                 alt="Joel B. Gacho — WordPress Web Designer and SEO Specialist based in Bacolod City, Philippines"

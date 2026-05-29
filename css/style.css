@@ -571,6 +571,32 @@ strong { color: var(--text-primary); font-weight: 600; }
   66%       { border-radius: 40% 60% 60% 40% / 60% 50% 40% 50%; }
 }
 
+/* Orbiting dot around the portrait — ported from the 404 "0" planet */
+.hero__orbit {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 108%;
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none;
+}
+.hero__orbit-spin {
+  position: absolute;
+  inset: 0;
+  animation: hero-orbit 7s linear infinite;
+}
+.hero__planet {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  box-shadow: 0 0 18px 2px var(--accent);
+}
+@keyframes hero-orbit { to { transform: rotate(360deg); } }
+
 .hero__img {
   position: relative;
   z-index: 1;
