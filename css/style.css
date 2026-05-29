@@ -360,93 +360,51 @@ strong { color: var(--text-primary); font-weight: 600; }
   background-color: var(--bg-primary);
 }
 
-/* Aurora mesh overlay — radial vignette to ground the content */
-.hero::after {
+/* Soft accent glow backdrop — ported from the 404 page */
+.hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 40%, var(--bg-primary) 100%);
+  background: radial-gradient(ellipse 62% 52% at 50% 40%, var(--accent-glow) 0%, transparent 62%);
   pointer-events: none;
   z-index: 0;
 }
 
-/* Aurora blobs */
+/* Faint fading grid — ported from the 404 page */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 72% 64% at 50% 45%, #000 0%, transparent 76%);
+  mask-image: radial-gradient(ellipse 72% 64% at 50% 45%, #000 0%, transparent 76%);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Floating ambient orbs — ported from the 404 page */
 .hero__bg-shapes { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
 .hero__shape {
   position: absolute;
   border-radius: 50%;
+  background: var(--gradient);
+  opacity: 0.16;
+  filter: blur(9px);
   will-change: transform;
+  animation: hero-float 10s ease-in-out infinite;
 }
+.hero__shape--1 { width: 120px; height: 120px; top: 14%;   left: 9%;   animation-delay: 0s;   }
+.hero__shape--2 { width: 82px;  height: 82px;  bottom: 18%; right: 11%; animation-delay: 1.6s; }
+.hero__shape--3 { width: 48px;  height: 48px;  top: 24%;    right: 18%; animation-delay: 3.1s; }
+.hero__shape--4 { width: 66px;  height: 66px;  bottom: 20%; left: 16%;  animation-delay: 2.2s; }
+.hero__shape--5 { width: 38px;  height: 38px;  top: 56%;    right: 32%; animation-delay: 4s;   }
 
-/* Shape 1 — large orange/amber, top-right anchor */
-.hero__shape--1 {
-  width: 780px; height: 780px;
-  top: -25%; right: -12%;
-  background: radial-gradient(circle, rgba(248, 94, 0, 0.52) 0%, rgba(248, 94, 0, 0.18) 45%, transparent 70%);
-  filter: blur(90px);
-  animation: aurora1 14s ease-in-out infinite;
-}
-
-/* Shape 2 — deep blue/indigo, top-left */
-.hero__shape--2 {
-  width: 620px; height: 620px;
-  top: -15%; left: -12%;
-  background: radial-gradient(circle, rgba(30, 58, 200, 0.48) 0%, rgba(18, 36, 160, 0.16) 50%, transparent 70%);
-  filter: blur(100px);
-  animation: aurora2 18s ease-in-out infinite;
-}
-
-/* Shape 3 — teal/cyan, bottom-left */
-.hero__shape--3 {
-  width: 520px; height: 520px;
-  bottom: -20%; left: 5%;
-  background: radial-gradient(circle, rgba(0, 188, 168, 0.34) 0%, rgba(0, 150, 136, 0.10) 50%, transparent 70%);
-  filter: blur(110px);
-  animation: aurora3 22s ease-in-out infinite;
-}
-
-/* Shape 4 — violet/purple, mid-left */
-.hero__shape--4 {
-  width: 440px; height: 440px;
-  top: 30%; left: -8%;
-  background: radial-gradient(circle, rgba(124, 44, 218, 0.30) 0%, rgba(88, 22, 180, 0.09) 50%, transparent 70%);
-  filter: blur(95px);
-  animation: aurora4 25s ease-in-out infinite;
-}
-
-/* Shape 5 — warm gold, bottom-right accent */
-.hero__shape--5 {
-  width: 380px; height: 380px;
-  bottom: -10%; right: 8%;
-  background: radial-gradient(circle, rgba(255, 160, 20, 0.22) 0%, rgba(255, 120, 0, 0.07) 50%, transparent 70%);
-  filter: blur(85px);
-  animation: aurora5 16s ease-in-out infinite;
-}
-
-/* Aurora drift animations — each on its own timing so they never sync */
-@keyframes aurora1 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  30%       { transform: translate(-50px, 35px) scale(1.06); }
-  65%       { transform: translate(30px, -25px) scale(0.96); }
-}
-@keyframes aurora2 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  35%       { transform: translate(65px, 50px) scale(1.08); }
-  70%       { transform: translate(-25px, 70px) scale(0.94); }
-}
-@keyframes aurora3 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  40%       { transform: translate(-45px, -40px) scale(1.10); }
-  72%       { transform: translate(55px, 25px) scale(0.93); }
-}
-@keyframes aurora4 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50%       { transform: translate(80px, -55px) scale(1.07); }
-}
-@keyframes aurora5 {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  45%       { transform: translate(-35px, -45px) scale(1.05); }
-  80%       { transform: translate(25px, 30px) scale(0.97); }
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-22px); }
 }
 
 .hero__inner {
@@ -2817,20 +2775,6 @@ a.contact__detail-value:hover { color: var(--accent); }
   background-size: 180px 180px;
 }
 
-/* Hero background shapes — boosted with indigo / sky counterpoint */
-[data-theme="dark"] .hero__shape--1 {
-  width: 620px; height: 620px;
-  background: radial-gradient(circle, rgba(248, 94, 0, 0.16) 0%, rgba(248, 94, 0, 0.03) 65%);
-}
-[data-theme="dark"] .hero__shape--2 {
-  width: 460px; height: 460px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.16) 0%, rgba(248, 94, 0, 0.04) 70%);
-}
-[data-theme="dark"] .hero__shape--3 {
-  width: 320px; height: 320px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.10) 0%, rgba(99, 102, 241, 0.05) 65%);
-}
-
 /* Hero image — orange glow border */
 [data-theme="dark"] .hero__img {
   border-color: rgba(248, 94, 0, 0.38);
@@ -2930,8 +2874,6 @@ a.contact__detail-value:hover { color: var(--accent); }
    LIGHT MODE — DARK BACKGROUND BEHIND HERO PORTRAIT
    Only the blob circle behind the person photo goes dark.
 ───────────────────────────────────────────────────── */
-[data-theme="light"] .hero__shape { opacity: 0.15; }
-[data-theme="light"] .hero::after { background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 30%, var(--bg-primary) 100%); }
 
 [data-theme="light"] .hero__img-blob {
   background: #FA650B;
