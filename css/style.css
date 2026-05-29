@@ -2979,11 +2979,14 @@ a.contact__detail-value:hover { color: var(--accent); }
 [data-theme="light"] .service-card:hover {
   box-shadow: 0 20px 48px rgba(2, 1, 34, 0.10);
 }
+/* Remove circular ambient glow behind card content */
 [data-theme="light"] .service-card::after {
-  background: radial-gradient(circle, rgba(2, 1, 34, 0.10) 0%, transparent 70%);
+  display: none;
 }
+/* Remove circular shadow behind the round icon */
+[data-theme="light"] .service-card__icon,
 [data-theme="light"] .service-card:hover .service-card__icon {
-  box-shadow: 0 6px 20px rgba(2, 1, 34, 0.22);
+  box-shadow: none;
 }
 
 /* Skill cards */
