@@ -39,9 +39,10 @@ themeToggle.addEventListener('click', () => {
 
 /* ─────────────────────────────────────────────────────
    2. ROLE ANIMATION
-   Swaps the whole role with a smooth horizontal slide:
-   the current word slides out to the left and fades, the
-   next word slides in from the right. No typewriter.
+   Cursor-driven wipe: the cursor sweeps left to erase the
+   current role from the right (the text box collapses to
+   width 0), then the next role is revealed from the left
+   as the box grows back. No character-by-character typing.
 ───────────────────────────────────────────────────── */
 const typedEl = document.getElementById('typedRole');
 
@@ -52,45 +53,65 @@ if (typedEl) {
     'Elementor Pro Expert',
   ];
 
-  const HOLD = 2200;   // ms each role stays fully visible
-  const FADE = 420;    // ms for the swap — must match the CSS transition
+  const WIPE = 260;    // ms per wipe (erase / reveal) — must match the CSS transition
+  const HOLD = 1900;   // ms each role stays fully visible
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let roleIdx = 0;
 
-  // Show the first role immediately
-  typedEl.textContent = roles[0];
-  typedEl.setAttribute('aria-label', roles[0]);
-
-  function nextRole() {
-    roleIdx = (roleIdx + 1) % roles.length;
-    typedEl.textContent = roles[roleIdx];
-    typedEl.setAttribute('aria-label', roles[roleIdx]);
+  function showText(text) {
+    typedEl.textContent = text;
+    typedEl.setAttribute('aria-label', text);
   }
 
-  function cycleRole() {
-    if (reduce) {
-      nextRole();
-      setTimeout(cycleRole, HOLD);
-      return;
+  // Measure the current text's natural pixel width, without animating
+  function naturalWidth() {
+    const prev = typedEl.style.transition;
+    typedEl.style.transition = 'none';
+    typedEl.style.width = 'auto';
+    const w = Math.ceil(typedEl.getBoundingClientRect().width);
+    typedEl.style.transition = prev;
+    return w;
+  }
+
+  // Set width; `instant` applies it with no transition (so the next change animates)
+  function setWidth(px, instant) {
+    if (!instant) { typedEl.style.width = px + 'px'; return; }
+    const prev = typedEl.style.transition;
+    typedEl.style.transition = 'none';
+    typedEl.style.width = px + 'px';
+    void typedEl.offsetWidth;            // flush the jump
+    typedEl.style.transition = prev;
+  }
+
+  showText(roles[0]);
+
+  if (reduce) {
+    // No motion preference: just rotate the text in place
+    setInterval(function () {
+      roleIdx = (roleIdx + 1) % roles.length;
+      showText(roles[roleIdx]);
+    }, HOLD);
+  } else {
+    function cycleRole() {
+      // 1. Lock the current width, then let the cursor erase it from the right
+      setWidth(naturalWidth(), true);
+      setWidth(0, false);
+
+      // 2. Once erased, swap text and reveal the next role from the left
+      setTimeout(function () {
+        roleIdx = (roleIdx + 1) % roles.length;
+        showText(roles[roleIdx]);
+        const w = naturalWidth();
+        setWidth(0, true);
+        requestAnimationFrame(function () { setWidth(w, false); });
+      }, WIPE);
+
+      setTimeout(cycleRole, WIPE * 2 + HOLD);
     }
 
-    // 1. Slide the current word out to the left
-    typedEl.classList.add('is-out');
-
-    // 2. After it leaves, swap text and park it off to the right…
-    setTimeout(function () {
-      nextRole();
-      typedEl.classList.remove('is-out');
-      typedEl.classList.add('is-in');
-      void typedEl.offsetWidth;          // force reflow so the jump applies instantly
-      typedEl.classList.remove('is-in'); // …then release it to slide in from the right
-    }, FADE);
-
-    setTimeout(cycleRole, HOLD + FADE);
+    setTimeout(cycleRole, HOLD);
   }
-
-  setTimeout(cycleRole, HOLD);
 }
 
 

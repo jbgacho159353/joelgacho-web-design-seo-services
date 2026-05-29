@@ -472,23 +472,15 @@ strong { color: var(--text-primary); font-weight: 600; }
   overflow: hidden;
 }
 
+/* The cursor rides the right edge of this box. Animating its width wipes
+   the text away to the right (erase) and reveals the next from the left. */
 .hero__typed {
   color: var(--accent);
-  position: relative;
   display: inline-block;
-  transition: opacity 0.42s ease, transform 0.42s ease;
-}
-/* Sideways swap — current role slides out to the LEFT and fades */
-.hero__typed.is-out {
-  opacity: 0;
-  transform: translateX(-0.6em);
-}
-/* Next role is parked off to the RIGHT (no transition), then released so
-   it slides in from the right into place */
-.hero__typed.is-in {
-  opacity: 0;
-  transform: translateX(0.6em);
-  transition: none;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  transition: width 0.26s ease;
 }
 
 /* Blinking cursor */
