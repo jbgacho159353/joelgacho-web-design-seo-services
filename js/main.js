@@ -54,7 +54,7 @@ if (typedEl) {
   ];
 
   const WIPE = 600;    // ms per wipe (erase / reveal) — must match the CSS transition
-  const HOLD = 1500;   // ms each role stays fully visible
+  const HOLD = 4000;   // ms each role stays fully visible before it wipes
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let roleIdx = 0;

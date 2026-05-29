@@ -487,8 +487,8 @@ strong { color: var(--text-primary); font-weight: 600; }
    White in dark mode, black in light mode (override below). */
 .hero__cursor {
   display: inline-block;
-  width: 3px;
-  height: 1.15em;          /* taller than the letters, but stays thin */
+  width: 2px;
+  height: 1.3em;           /* taller than the letters, but stays thin */
   margin-left: 6px;
   background: #ffffff;     /* dark mode */
   color: transparent;      /* hide the "|" glyph; the bar is the box itself */
