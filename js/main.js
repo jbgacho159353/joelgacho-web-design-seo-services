@@ -28,9 +28,8 @@ function setTheme(theme) {
 }
 
 (function initTheme() {
-  const saved      = localStorage.getItem(THEME_KEY);
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  setTheme(saved || (prefersDark ? 'dark' : 'light'));
+  const saved = localStorage.getItem(THEME_KEY);
+  setTheme(saved || 'dark');
 })();
 
 themeToggle.addEventListener('click', () => {
