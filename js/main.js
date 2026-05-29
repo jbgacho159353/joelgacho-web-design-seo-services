@@ -39,9 +39,9 @@ themeToggle.addEventListener('click', () => {
 
 /* ─────────────────────────────────────────────────────
    2. ROLE ANIMATION
-   Swaps the whole role with a smooth fade + slide: the
-   current word rolls up and fades out, the next fades
-   back down into place. No character-by-character typing.
+   Swaps the whole role with a smooth horizontal slide:
+   the current word slides out to the left and fades, the
+   next word slides in from the right. No typewriter.
 ───────────────────────────────────────────────────── */
 const typedEl = document.getElementById('typedRole');
 
@@ -62,18 +62,32 @@ if (typedEl) {
   typedEl.textContent = roles[0];
   typedEl.setAttribute('aria-label', roles[0]);
 
+  function nextRole() {
+    roleIdx = (roleIdx + 1) % roles.length;
+    typedEl.textContent = roles[roleIdx];
+    typedEl.setAttribute('aria-label', roles[roleIdx]);
+  }
+
   function cycleRole() {
-    if (!reduce) typedEl.classList.add('is-swapping');
+    if (reduce) {
+      nextRole();
+      setTimeout(cycleRole, HOLD);
+      return;
+    }
 
-    // After the fade-out, swap text and let it fade back in
+    // 1. Slide the current word out to the left
+    typedEl.classList.add('is-out');
+
+    // 2. After it leaves, swap text and park it off to the right…
     setTimeout(function () {
-      roleIdx = (roleIdx + 1) % roles.length;
-      typedEl.textContent = roles[roleIdx];
-      typedEl.setAttribute('aria-label', roles[roleIdx]);
-      if (!reduce) typedEl.classList.remove('is-swapping');
-    }, reduce ? 0 : FADE);
+      nextRole();
+      typedEl.classList.remove('is-out');
+      typedEl.classList.add('is-in');
+      void typedEl.offsetWidth;          // force reflow so the jump applies instantly
+      typedEl.classList.remove('is-in'); // …then release it to slide in from the right
+    }, FADE);
 
-    setTimeout(cycleRole, HOLD + (reduce ? 0 : FADE));
+    setTimeout(cycleRole, HOLD + FADE);
   }
 
   setTimeout(cycleRole, HOLD);

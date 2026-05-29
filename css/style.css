@@ -478,11 +478,17 @@ strong { color: var(--text-primary); font-weight: 600; }
   display: inline-block;
   transition: opacity 0.42s ease, transform 0.42s ease;
 }
-/* Mid-swap state: roll up and fade out; releasing the class fades the
-   next role back down into place */
-.hero__typed.is-swapping {
+/* Sideways swap — current role slides out to the LEFT and fades */
+.hero__typed.is-out {
   opacity: 0;
-  transform: translateY(-0.4em);
+  transform: translateX(-0.6em);
+}
+/* Next role is parked off to the RIGHT (no transition), then released so
+   it slides in from the right into place */
+.hero__typed.is-in {
+  opacity: 0;
+  transform: translateX(0.6em);
+  transition: none;
 }
 
 /* Blinking cursor */
