@@ -53,8 +53,8 @@ if (typedEl) {
     'Elementor Pro Expert',
   ];
 
-  const WIPE = 260;    // ms per wipe (erase / reveal) — must match the CSS transition
-  const HOLD = 1900;   // ms each role stays fully visible
+  const WIPE = 600;    // ms per wipe (erase / reveal) — must match the CSS transition
+  const HOLD = 1500;   // ms each role stays fully visible
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let roleIdx = 0;
