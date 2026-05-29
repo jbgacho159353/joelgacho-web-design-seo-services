@@ -799,26 +799,30 @@ strong { color: var(--text-primary); font-weight: 600; }
 }
 
 /* Glassmorphism — dark mode only */
-html:not([data-theme="light"]) .services {
+[data-theme="dark"] .services {
   background:
-    radial-gradient(ellipse 70% 80% at 10% 55%, rgba(248, 94, 0, 0.22) 0%, transparent 65%),
-    radial-gradient(ellipse 60% 70% at 90% 35%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 100% at 0% 60%, rgba(248, 94, 0, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 80% at 100% 30%, rgba(99, 102, 241, 0.28) 0%, transparent 55%),
     var(--bg-surface);
 }
-html:not([data-theme="light"]) .service-card {
-  background: rgba(255, 255, 255, 0.07);
+[data-theme="dark"] .service-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.13) 0%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
   backdrop-filter: blur(20px) saturate(200%);
   -webkit-backdrop-filter: blur(20px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    0 8px 32px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
-html:not([data-theme="light"]) .service-card:hover {
-  border-color: rgba(248, 94, 0, 0.55);
+[data-theme="dark"] .service-card:hover {
+  border-color: rgba(248, 94, 0, 0.60);
   box-shadow:
-    0 20px 48px rgba(248, 94, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    0 20px 48px rgba(248, 94, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.20);
 }
 
 /* Stats strip below service cards */
