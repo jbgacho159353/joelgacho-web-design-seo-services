@@ -3063,6 +3063,10 @@ a.contact__detail-value:hover { color: var(--accent); }
   background: #e7e9f0;
   color: #020122;
 }
+/* No top accent bar in light mode */
+[data-theme="light"] .footer::before {
+  display: none;
+}
 /* Dot-grid texture: dark dots so it reads on a light background */
 [data-theme="light"] .footer::after {
   background-image: radial-gradient(circle, rgba(2, 1, 34, 0.05) 1px, transparent 1px);
