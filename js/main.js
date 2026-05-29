@@ -65,19 +65,25 @@ if (typedEl) {
     typedEl.setAttribute('aria-label', text);
   }
 
-  // Size the wrapper to the CURRENT role. On centered layouts (mobile) this
-  // keeps each role centred, while staying fixed during the wipe so only the
-  // cursor moves across the text. The wrapper only resizes between roles
-  // (while the text is hidden). Re-run on resize — the font size is responsive.
-  function fitWrap() {
+  // Reserve the wrapper at the widest role's width. On centered layouts
+  // (mobile) this keeps the block from shifting during the wipe, so only
+  // the cursor moves across the (left-anchored) text. Re-run on resize
+  // because the role font size is responsive.
+  function lockWrapWidth() {
+    const prevText  = typedEl.textContent;
     const prevWidth = typedEl.style.width;
     const prevTrans = typedEl.style.transition;
     typedEl.style.transition = 'none';
-    typedEl.style.width = 'auto';
-    const w = Math.ceil(typedEl.getBoundingClientRect().width);
+    let max = 0;
+    for (let i = 0; i < roles.length; i++) {
+      typedEl.textContent = roles[i];
+      typedEl.style.width = 'auto';
+      max = Math.max(max, Math.ceil(typedEl.getBoundingClientRect().width));
+    }
+    typedEl.textContent = prevText;
     typedEl.style.width = prevWidth;
     typedEl.style.transition = prevTrans;
-    wrapEl.style.width = w + 'px';
+    wrapEl.style.width = max + 'px';
   }
 
   // Measure the current text's natural pixel width, without animating
@@ -101,12 +107,12 @@ if (typedEl) {
   }
 
   showText(roles[0]);
-  fitWrap();
+  lockWrapWidth();
 
   let resizeTimer;
   window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(fitWrap, 200);
+    resizeTimer = setTimeout(lockWrapWidth, 200);
   }, { passive: true });
 
   if (reduce) {
@@ -126,7 +132,6 @@ if (typedEl) {
         roleIdx = (roleIdx + 1) % roles.length;
         showText(roles[roleIdx]);
         const w = naturalWidth();
-        wrapEl.style.width = w + 'px';     // recentre the (hidden) block to the new role
         setWidth(0, true);
         requestAnimationFrame(function () { setWidth(w, false); });
       }, WIPE);
