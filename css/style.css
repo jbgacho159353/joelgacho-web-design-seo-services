@@ -494,14 +494,8 @@ strong { color: var(--text-primary); font-weight: 600; }
   color: transparent;      /* hide the "|" glyph; the bar is the box itself */
   border-radius: 2px;
   overflow: hidden;
-  animation: blink 0.75s step-end infinite;
 }
 [data-theme="light"] .hero__cursor { background: #000000; }
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}
-
 .hero__summary {
   font-size: 1.02rem;
   line-height: 1.82;
