@@ -597,6 +597,14 @@ strong { color: var(--text-primary); font-weight: 600; }
 }
 @keyframes hero-orbit { to { transform: rotate(360deg); } }
 
+/* Second dot — wider ring, orbiting the opposite way and slower */
+.hero__orbit--2 { width: 124%; }
+.hero__orbit-spin--rev { animation-duration: 11s; animation-direction: reverse; }
+.hero__planet--sm {
+  width: 10px; height: 10px;
+  box-shadow: 0 0 14px 1px var(--accent);
+}
+
 .hero__img {
   position: relative;
   z-index: 1;

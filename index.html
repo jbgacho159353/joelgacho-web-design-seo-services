@@ -60,7 +60,7 @@
     <link rel="preload" as="image" href="assets/Hero-image.webp" fetchpriority="high" />
 
     <!-- ═══ STYLESHEET ═══ -->
-    <link rel="stylesheet" href="css/style.css?v=12" />
+    <link rel="stylesheet" href="css/style.css?v=13" />
 
     <!-- ═══ GOOGLE ANALYTICS 4 — replace G-XXXXXXXXXX with your Measurement ID ═══ -->
     <!--
@@ -383,9 +383,12 @@
           <div class="hero__visual" data-animate="fade-left">
             <div class="hero__img-frame">
               <div class="hero__img-blob" aria-hidden="true"></div>
-              <!-- Orbiting dot — mirrors the 404 "0" planet, circling the portrait -->
+              <!-- Orbiting dots — mirror the 404 "0" planet, circling the portrait -->
               <div class="hero__orbit" aria-hidden="true">
                 <div class="hero__orbit-spin"><span class="hero__planet"></span></div>
+              </div>
+              <div class="hero__orbit hero__orbit--2" aria-hidden="true">
+                <div class="hero__orbit-spin hero__orbit-spin--rev"><span class="hero__planet hero__planet--sm"></span></div>
               </div>
               <img
                 src="assets/Hero-image.webp"
