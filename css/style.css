@@ -3058,11 +3058,10 @@ a.contact__detail-value:hover { color: var(--accent); }
    Light background; text, icons and logo flip to the navy accent
    (#020122) — the same colour as the typed role text in the hero. */
 [data-theme="light"] .footer {
-  /* Cool, deeper grey + defined top edge so the footer reads as a
-     separate section from the contact area above (which is --bg-surface). */
+  /* Cool, deeper grey so the footer reads as a separate section from the
+     contact area above (which is --bg-surface). */
   background: #e7e9f0;
   color: #020122;
-  border-top: 1px solid rgba(2, 1, 34, 0.14);
 }
 /* Dot-grid texture: dark dots so it reads on a light background */
 [data-theme="light"] .footer::after {
