@@ -48,9 +48,9 @@ const typedEl = document.getElementById('typedRole');
 
 if (typedEl) {
   const roles = [
-    'WordPress Web Designer',
-    'SEO Specialist',
-    'Elementor Pro Expert',
+    'WordPress Web Designer.',
+    'SEO Specialist.',
+    'Elementor Pro Expert.',
   ];
 
   const WIPE = 600;    // ms per wipe (erase / reveal) — must match the CSS transition

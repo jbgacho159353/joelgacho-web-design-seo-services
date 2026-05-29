@@ -460,8 +460,8 @@ strong { color: var(--text-primary); font-weight: 600; }
   letter-spacing: 0.01em;
   color: var(--text-secondary);
   margin-bottom: 12px;
-  height: 1.2em;
-  overflow: hidden;
+  min-height: 1.2em;
+  overflow: visible;
   line-height: 1.2;
 }
 
@@ -469,7 +469,7 @@ strong { color: var(--text-primary); font-weight: 600; }
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* The cursor rides the right edge of this box. Animating its width wipes
@@ -483,17 +483,20 @@ strong { color: var(--text-primary); font-weight: 600; }
   transition: width 0.6s ease;
 }
 
-/* Blinking cursor */
+/* Blinking cursor — a thin bar, taller than the role text.
+   White in dark mode, black in light mode (override below). */
 .hero__cursor {
   display: inline-block;
-  color: var(--accent);
-  font-style: normal;
-  font-weight: 300;
-  font-size: 1.1em;
-  line-height: 1;
-  margin-left: 3px;
+  width: 3px;
+  height: 1.15em;          /* taller than the letters, but stays thin */
+  margin-left: 6px;
+  background: #ffffff;     /* dark mode */
+  color: transparent;      /* hide the "|" glyph; the bar is the box itself */
+  border-radius: 2px;
+  overflow: hidden;
   animation: blink 0.75s step-end infinite;
 }
+[data-theme="light"] .hero__cursor { background: #000000; }
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
