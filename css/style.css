@@ -3054,30 +3054,69 @@ a.contact__detail-value:hover { color: var(--accent); }
 }
 
 
-/* Footer — contact icons and back-to-top match social icon style */
-[data-theme="light"] .footer__contact-icon {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: #94a3b8;
+/* ─── Footer — light mode ───
+   Light background; text, icons and logo flip to the navy accent
+   (#020122) — the same colour as the typed role text in the hero. */
+[data-theme="light"] .footer {
+  background: var(--bg-surface);
+  color: #020122;
 }
-[data-theme="light"] .footer__back-top {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: #94a3b8;
+/* Dot-grid texture: dark dots so it reads on a light background */
+[data-theme="light"] .footer::after {
+  background-image: radial-gradient(circle, rgba(2, 1, 34, 0.05) 1px, transparent 1px);
+}
+/* Muted secondary text */
+[data-theme="light"] .footer__tagline,
+[data-theme="light"] .footer__contact-item,
+[data-theme="light"] .footer__copy,
+[data-theme="light"] .footer__made {
+  color: rgba(2, 1, 34, 0.6);
+}
+/* Nav-style links */
+[data-theme="light"] .footer__list a,
+[data-theme="light"] .footer__email {
+  color: rgba(2, 1, 34, 0.7);
+}
+[data-theme="light"] .footer__list a:hover,
+[data-theme="light"] .footer__email:hover {
+  color: #020122;
+}
+/* Social icons */
+[data-theme="light"] .footer__social-link {
+  background: rgba(2, 1, 34, 0.05);
+  border-color: rgba(2, 1, 34, 0.12);
+  color: #020122;
 }
 [data-theme="light"] .footer__social-link:hover {
-  background: #F85E00;
-  border-color: #F85E00;
+  background: #020122;
+  border-color: #020122;
   color: #fff;
-  box-shadow: 0 10px 24px rgba(248, 94, 0, 0.38);
+  box-shadow: 0 10px 24px rgba(2, 1, 34, 0.28);
+}
+/* Contact icons */
+[data-theme="light"] .footer__contact-icon {
+  background: rgba(2, 1, 34, 0.07);
+  border-color: rgba(2, 1, 34, 0.18);
+  color: #020122;
+}
+/* Back-to-top */
+[data-theme="light"] .footer__back-top {
+  background: rgba(2, 1, 34, 0.07);
+  border-color: rgba(2, 1, 34, 0.18);
+  color: #020122;
 }
 [data-theme="light"] .footer__back-top:hover {
-  background: #F85E00;
-  border-color: #F85E00;
+  background: #020122;
+  border-color: #020122;
   color: #fff;
-  box-shadow: 0 10px 24px rgba(248, 94, 0, 0.38);
+  box-shadow: 0 10px 24px rgba(2, 1, 34, 0.28);
 }
+/* Divider */
+[data-theme="light"] .footer__divider {
+  background: rgba(2, 1, 34, 0.1);
+}
+/* "Made with" heart matches the navy accent */
 [data-theme="light"] .footer__heart {
-  color: #F85E00 !important;
+  color: #020122 !important;
 }
 
