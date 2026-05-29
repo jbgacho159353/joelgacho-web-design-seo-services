@@ -605,6 +605,9 @@ strong { color: var(--text-primary); font-weight: 600; }
   box-shadow: 0 0 14px 1px var(--accent);
 }
 
+/* Orbiting dots are a dark-mode-only flourish */
+[data-theme="light"] .hero__orbit { display: none; }
+
 .hero__img {
   position: relative;
   z-index: 1;
