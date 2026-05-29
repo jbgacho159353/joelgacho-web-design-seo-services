@@ -58,32 +58,10 @@ if (typedEl) {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   let roleIdx = 0;
-  const wrapEl = typedEl.parentNode;   // .hero__typed-wrap
 
   function showText(text) {
     typedEl.textContent = text;
     typedEl.setAttribute('aria-label', text);
-  }
-
-  // Reserve the wrapper at the widest role's width. On centered layouts
-  // (mobile) this keeps the block from shifting during the wipe, so only
-  // the cursor moves across the (left-anchored) text. Re-run on resize
-  // because the role font size is responsive.
-  function lockWrapWidth() {
-    const prevText  = typedEl.textContent;
-    const prevWidth = typedEl.style.width;
-    const prevTrans = typedEl.style.transition;
-    typedEl.style.transition = 'none';
-    let max = 0;
-    for (let i = 0; i < roles.length; i++) {
-      typedEl.textContent = roles[i];
-      typedEl.style.width = 'auto';
-      max = Math.max(max, Math.ceil(typedEl.getBoundingClientRect().width));
-    }
-    typedEl.textContent = prevText;
-    typedEl.style.width = prevWidth;
-    typedEl.style.transition = prevTrans;
-    wrapEl.style.width = max + 'px';
   }
 
   // Measure the current text's natural pixel width, without animating
@@ -107,13 +85,6 @@ if (typedEl) {
   }
 
   showText(roles[0]);
-  lockWrapWidth();
-
-  let resizeTimer;
-  window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(lockWrapWidth, 200);
-  }, { passive: true });
 
   if (reduce) {
     // No motion preference: just rotate the text in place
