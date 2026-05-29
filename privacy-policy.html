@@ -28,6 +28,8 @@
       background: radial-gradient(ellipse 60% 70% at 70% 50%, rgba(249,115,22,0.07) 0%, transparent 65%);
       pointer-events: none;
     }
+    /* No orange glow in light mode */
+    [data-theme="light"] .legal-hero::before { display: none; }
     .legal-hero .section__label { margin-bottom: 12px; }
     .legal-hero h1 {
       font-family: 'Syne', sans-serif;
