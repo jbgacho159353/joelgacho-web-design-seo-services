@@ -2972,7 +2972,20 @@ a.contact__detail-value:hover { color: var(--accent); }
 
 /* Hero badge shadow */
 [data-theme="light"] .hero__badge {
-  box-shadow: 0 8px 32px rgba(2, 1, 34, 0.15);
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.22);
+}
+/* Orbiting glow → indigo in light mode (orange reads wrong on white) */
+[data-theme="light"] .hero__badge::before {
+  background: conic-gradient(
+    from var(--orbit-angle),
+    transparent 0deg,
+    transparent 55deg,
+    rgba(99, 102, 241, 0.85) 80deg,
+    #818cf8 90deg,
+    rgba(99, 102, 241, 0.85) 100deg,
+    transparent 130deg,
+    transparent 360deg
+  );
 }
 
 /* Service cards */
