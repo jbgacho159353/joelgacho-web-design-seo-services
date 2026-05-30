@@ -2,7 +2,7 @@
    PIXLURK PORTFOLIO — main.js
    Joel B. Gacho · joelgacho.com
    ─────────────────────────────────────────────────────
-   1. Theme toggle (dark / light) with localStorage
+   1. Theme toggle (dark / light) — defaults to dark each session
    2. Typing / role animation (reeni-wp.laralink.com style)
    3. Mobile hamburger menu
    4. Active nav link on scroll
@@ -24,11 +24,13 @@ const THEME_KEY   = 'pixlurk-theme';
 
 function setTheme(theme) {
   html.setAttribute('data-theme', theme);
-  localStorage.setItem(THEME_KEY, theme);
+  // sessionStorage clears when the browser/tab is closed, so every fresh
+  // visit starts in dark mode. The toggle still persists within a session.
+  sessionStorage.setItem(THEME_KEY, theme);
 }
 
 (function initTheme() {
-  const saved = localStorage.getItem(THEME_KEY);
+  const saved = sessionStorage.getItem(THEME_KEY);
   setTheme(saved || 'dark');
 })();
 
