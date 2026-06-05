@@ -52,7 +52,7 @@ if (typedEl) {
   const roles = [
     'WordPress Web Designer.',
     'SEO Specialist.',
-    'Elementor Pro Expert.',
+    'AI-Assisted Developer.',
   ];
 
   const WIPE = 600;    // ms per wipe (erase / reveal) — must match the CSS transition
