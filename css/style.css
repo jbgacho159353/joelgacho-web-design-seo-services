@@ -731,7 +731,7 @@ strong { color: var(--text-primary); font-weight: 600; }
 
 .services__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
@@ -2289,6 +2289,8 @@ a.contact__detail-value:hover { color: var(--accent); }
 
   .hero__badge--top    { left: 0; }
   .hero__badge--bottom { right: 0; }
+
+  .hero__scroll-down { display: none; }
 
   .about__inner { grid-template-columns: 1fr; gap: 52px; }
   .skills__cards { grid-template-columns: 1fr; gap: 20px; }
