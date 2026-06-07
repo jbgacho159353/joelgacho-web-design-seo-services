@@ -60,7 +60,7 @@
     <link rel="preload" as="image" href="assets/Hero-image.webp" fetchpriority="high" />
 
     <!-- ═══ STYLESHEET ═══ -->
-    <link rel="stylesheet" href="css/style.css?v=21" />
+    <link rel="stylesheet" href="css/style.css?v=22" />
 
     <!-- ═══ GOOGLE ANALYTICS 4 — replace G-XXXXXXXXXX with your Measurement ID ═══ -->
     <!--
@@ -105,6 +105,7 @@
           <li><a href="#experience" class="nav__link">Experience</a></li>
           <li><a href="#projects" class="nav__link">Projects</a></li>
           <li><a href="blog.html" class="nav__link">Blog</a></li>
+          <li><a href="#pricing" class="nav__link">Pricing</a></li>
           <li>
             <a href="#contact" class="nav__link nav__link--cta">Contact</a>
           </li>
@@ -176,6 +177,7 @@
           </li>
           <li><a href="#projects" class="mobile-menu__link">Projects</a></li>
           <li><a href="blog.html" class="mobile-menu__link">Blog</a></li>
+          <li><a href="#pricing" class="mobile-menu__link">Pricing</a></li>
           <li><a href="#contact" class="mobile-menu__link">Contact</a></li>
         </ul>
       </div>
@@ -3540,6 +3542,183 @@
           startAuto();
         })();
       </script>
+
+      <!-- ═══════════════════════════════════════
+         PRICING SECTION
+    ═══════════════════════════════════════ -->
+      <section
+        id="pricing"
+        class="section pricing"
+        aria-labelledby="pricing-heading"
+      >
+        <div class="container">
+          <div class="section__header" data-animate="fade-up">
+            <span class="section__label">Pricing</span>
+            <h2 id="pricing-heading" class="section__title">
+              Transparent, value-driven pricing
+            </h2>
+            <div class="section__divider" aria-hidden="true"></div>
+            <p class="section__subtitle">
+              Agency-quality work at freelancer rates — built for clients in the
+              US, UK, Canada &amp; Australia.
+            </p>
+          </div>
+
+          <div class="pricing__grid">
+
+            <!-- CARD 01 — WordPress Website Design -->
+            <div class="pricing-card" data-animate="fade-up">
+              <span class="pricing-card__num" aria-hidden="true">01</span>
+              <div class="pricing-card__icon-wrap" aria-hidden="true">
+                <img
+                  src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/wordpress.svg"
+                  alt="WordPress"
+                  width="38"
+                  height="38"
+                  style="object-fit:contain; filter:brightness(0) invert(1)"
+                />
+              </div>
+              <h3 class="pricing-card__title">WordPress Website Design</h3>
+              <div class="pricing-card__divider" aria-hidden="true"></div>
+              <ul class="pricing-card__tiers" role="list">
+                <li class="pricing-tier">
+                  <span class="pricing-tier__bullet" aria-hidden="true"></span>
+                  <div class="pricing-tier__body">
+                    <span class="pricing-tier__label">Basic</span>
+                    <div class="pricing-tier__price">$300 – $500</div>
+                    <p class="pricing-tier__desc">3–5 pages · Elementor Pro · Mobile responsive · Basic SEO setup</p>
+                  </div>
+                </li>
+                <li class="pricing-tier">
+                  <span class="pricing-tier__bullet" aria-hidden="true"></span>
+                  <div class="pricing-tier__body">
+                    <span class="pricing-tier__label">Standard</span>
+                    <div class="pricing-tier__price">$600 – $1,200</div>
+                    <p class="pricing-tier__desc">6–10 pages · Custom design · Speed optimised · Contact forms</p>
+                  </div>
+                </li>
+                <li class="pricing-tier pricing-tier--last">
+                  <span class="pricing-tier__bullet" aria-hidden="true"></span>
+                  <div class="pricing-tier__body">
+                    <span class="pricing-tier__label">Premium</span>
+                    <div class="pricing-tier__price">$1,500+</div>
+                    <p class="pricing-tier__desc">10+ pages · Full custom build · WooCommerce · On-page SEO</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="pricing-card__cta">
+                <button
+                  class="btn btn--outline"
+                  onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+                >Get a free quote &rarr;</button>
+              </div>
+            </div>
+
+            <!-- CARD 02 — AI-Assisted Development [FEATURED] -->
+            <div class="pricing-card pricing-card--featured" data-animate="fade-up">
+              <span class="pricing-card__num" aria-hidden="true">02</span>
+              <span class="pricing-card__badge">&#9889; Most Popular</span>
+              <div class="pricing-card__icon-wrap" aria-hidden="true">
+                <img
+                  src="assets/claudecode-color.png"
+                  alt="Claude Code"
+                  width="38"
+                  height="38"
+                  style="object-fit:contain; filter:brightness(0) invert(1)"
+                />
+              </div>
+              <h3 class="pricing-card__title">AI-Assisted Development</h3>
+              <div class="pricing-card__divider" aria-hidden="true"></div>
+              <ul class="pricing-card__tiers" role="list">
+                <li class="pricing-tier">
+                  <span class="pricing-tier__bullet" aria-hidden="true"></span>
+                  <div class="pricing-tier__body">
+                    <span class="pricing-tier__label">Starter</span>
+                    <div class="pricing-tier__price">$200 – $800</div>
+                    <p class="pricing-tier__desc">Landing page · Portfolio · Business profile · Custom HTML/CSS</p>
+                  </div>
+                </li>
+                <li class="pricing-tier">
+                  <span class="pricing-tier__bullet" aria-hidden="true"></span>
+                  <div class="pricing-tier__body">
+                    <span class="pricing-tier__label">Growth</span>
+                    <div class="pricing-tier__price">$800 – $2,500</div>
+                    <p class="pricing-tier__desc">Web app · SaaS · AI chatbot · Custom functionality</p>
+                  </div>
+                </li>
+                <li class="pricing-tier pricing-tier--last">
+                  <span class="pricing-tier__bullet" aria-hidden="true"></span>
+                  <div class="pricing-tier__body">
+                    <span class="pricing-tier__label">Scale</span>
+                    <div class="pricing-tier__price">$1,500 – $4,000+</div>
+                    <p class="pricing-tier__desc">Mobile app · Full-stack SaaS · Complex integrations · API builds</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="pricing-card__cta">
+                <button
+                  class="btn btn--primary"
+                  onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+                >Get a free quote &rarr;</button>
+              </div>
+            </div>
+
+            <!-- CARD 03 — SEO Services -->
+            <div class="pricing-card" data-animate="fade-up">
+              <span class="pricing-card__num" aria-hidden="true">03</span>
+              <div class="pricing-card__icon-wrap" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                  <polyline points="16 7 22 7 22 13"/>
+                </svg>
+              </div>
+              <h3 class="pricing-card__title">SEO Services</h3>
+              <div class="pricing-card__divider" aria-hidden="true"></div>
+              <ul class="pricing-card__tiers" role="list">
+                <li class="pricing-tier">
+                  <span class="pricing-tier__bullet" aria-hidden="true"></span>
+                  <div class="pricing-tier__body">
+                    <span class="pricing-tier__label">SEO Audit</span>
+                    <div class="pricing-tier__price">$300 – $600</div>
+                    <p class="pricing-tier__desc">One-time · Technical audit · Keyword research · Action report</p>
+                  </div>
+                </li>
+                <li class="pricing-tier">
+                  <span class="pricing-tier__bullet" aria-hidden="true"></span>
+                  <div class="pricing-tier__body">
+                    <span class="pricing-tier__label">On-Page SEO</span>
+                    <div class="pricing-tier__price">$500 – $1,200</div>
+                    <p class="pricing-tier__desc">Per site · Schema markup · Meta optimisation · Speed fixes</p>
+                  </div>
+                </li>
+                <li class="pricing-tier pricing-tier--last">
+                  <span class="pricing-tier__bullet" aria-hidden="true"></span>
+                  <div class="pricing-tier__body">
+                    <span class="pricing-tier__label">Monthly Retainer</span>
+                    <div class="pricing-tier__price">$500 – $1,000<span class="pricing-tier__per">/mo</span></div>
+                    <p class="pricing-tier__desc">Ongoing · Local SEO · Google Business Profile · Rank tracking</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="pricing-card__cta">
+                <button
+                  class="btn btn--outline"
+                  onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+                >Get a free quote &rarr;</button>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="pricing__note" data-animate="fade-up">
+            All prices in USD
+            <span class="pricing__dot" aria-hidden="true"></span>
+            Final quote depends on scope &amp; complexity
+            <span class="pricing__dot" aria-hidden="true"></span>
+            Reply within 24 hours
+          </p>
+        </div>
+      </section>
 
       <!-- ═══════════════════════════════════════
          CONTACT SECTION
