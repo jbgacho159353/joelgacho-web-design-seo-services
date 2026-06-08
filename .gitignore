@@ -1,6 +1,10 @@
 # Netlify CLI local state (machine-specific, not for the repo)
 .netlify/
 
+# Environment variables — never commit secrets
+.env
+.env.*
+
 # OS / editor cruft
 Thumbs.db
 .DS_Store
