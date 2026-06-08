@@ -88,32 +88,32 @@ TONE:
 - Unknown questions: direct to joelgacho.ffseo@gmail.com`;
 
 const CORS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'Content-Type',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
 exports.handler = async (event) => {
-  if (event.httpMethod === 'OPTIONS') {
-    return { statusCode: 200, headers: CORS, body: '' };
+  if (event.httpMethod === "OPTIONS") {
+    return { statusCode: 200, headers: CORS, body: "" };
   }
 
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, headers: CORS, body: 'Method Not Allowed' };
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, headers: CORS, body: "Method Not Allowed" };
   }
 
   try {
     const { messages } = JSON.parse(event.body);
 
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
+    const response = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': process.env.ANTHROPIC_API_KEY,
-        'anthropic-version': '2023-06-01',
+        "Content-Type": "application/json",
+        "x-api-key": process.env.ANTHROPIC_API_KEY,
+        "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: "claude-sonnet-4-6",
         max_tokens: 500,
         system: SYSTEM_PROMPT,
         messages,
@@ -122,11 +122,11 @@ exports.handler = async (event) => {
 
     if (!response.ok) {
       const err = await response.text();
-      console.error('Anthropic error:', err);
+      console.error("Anthropic error:", err);
       return {
         statusCode: 502,
         headers: CORS,
-        body: JSON.stringify({ error: 'AI service unavailable' }),
+        body: JSON.stringify({ error: "AI service unavailable" }),
       };
     }
 
@@ -135,15 +135,15 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
-      headers: { ...CORS, 'Content-Type': 'application/json' },
+      headers: { ...CORS, "Content-Type": "application/json" },
       body: JSON.stringify({ reply }),
     };
   } catch (err) {
-    console.error('chat function error:', err);
+    console.error("chat function error:", err);
     return {
       statusCode: 500,
       headers: CORS,
-      body: JSON.stringify({ error: 'Internal server error' }),
+      body: JSON.stringify({ error: "Internal server error" }),
     };
   }
 };
