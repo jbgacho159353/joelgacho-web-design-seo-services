@@ -265,6 +265,35 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 
 /* ─────────────────────────────────────────────────────
+   12. FAQ ACCORDION
+───────────────────────────────────────────────────── */
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+  const btn    = item.querySelector('.faq-item__question');
+  const answer = item.querySelector('.faq-item__answer');
+
+  btn.addEventListener('click', () => {
+    const isOpen = item.classList.contains('is-open');
+
+    // Close all
+    faqItems.forEach(i => {
+      i.classList.remove('is-open');
+      i.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+      i.querySelector('.faq-item__answer').style.maxHeight = null;
+    });
+
+    // Open clicked (toggle off if already open)
+    if (!isOpen) {
+      item.classList.add('is-open');
+      btn.setAttribute('aria-expanded', 'true');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+
+
+/* ─────────────────────────────────────────────────────
    11. PROJECT CATEGORY FILTER + LOAD MORE
 ───────────────────────────────────────────────────── */
 const filterBtns   = document.querySelectorAll('.projects__filter .filter-btn');

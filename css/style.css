@@ -2273,6 +2273,102 @@ a.contact__detail-value:hover { color: var(--accent); }
 
 
 /* ─────────────────────────────────────────────────────
+   19. FAQ SECTION
+───────────────────────────────────────────────────── */
+.faq { background: #070B13; }
+
+.section__divider--glow {
+  box-shadow: 0 0 14px 3px rgba(248, 94, 0, 0.42);
+}
+
+.faq__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: #0E1522;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.28s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(248, 94, 0, 0.35);
+}
+
+.faq-item__question {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-item__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(248, 94, 0, 0.18);
+  color: var(--accent);
+  font-size: 1.15rem;
+  font-weight: 400;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: background 0.28s ease, color 0.28s ease, transform 0.28s ease;
+}
+
+.faq-item.is-open .faq-item__icon {
+  background: var(--accent);
+  color: #fff;
+  transform: rotate(45deg);
+}
+
+.faq-item__answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 24px;
+  transition: max-height 0.35s ease, padding 0.28s ease;
+}
+
+.faq-item.is-open .faq-item__answer {
+  padding: 0 24px 20px;
+}
+
+.faq-item__answer p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin: 0;
+}
+
+[data-theme="light"] .faq { background: var(--bg-surface); }
+[data-theme="light"] .faq-item { background: #ffffff; border-color: rgba(0, 0, 0, 0.09); }
+[data-theme="light"] .faq-item:hover { border-color: rgba(2, 1, 34, 0.25); }
+[data-theme="light"] .faq-item__icon { background: rgba(2, 1, 34, 0.10); color: var(--accent); }
+[data-theme="light"] .faq-item.is-open .faq-item__icon { background: var(--accent); color: #fff; }
+
+@media (max-width: 768px) {
+  .faq__grid { grid-template-columns: 1fr; }
+}
+
+
+/* ─────────────────────────────────────────────────────
    19. RESPONSIVE — TABLET (≤ 1024px)
 ───────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
