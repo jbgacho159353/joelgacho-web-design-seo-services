@@ -1,21 +1,47 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Why I Build Every Client Site With Elementor Pro (And When I Don't) | Joel Gacho Blog</title>
+  <title>Why I Build Every Client Site With Elementor Pro | JG DigitalHub Blog</title>
   <meta name="description" content="An honest review of Elementor Pro after 50+ WordPress builds — what it does brilliantly, where it falls short, and the edge cases where I reach for something else.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://joelgacho.com/blog/elementor-pro-honest-review.html">
+  <link rel="canonical" href="https://jgdigitalhub.com/blog/elementor-pro-honest-review.html">
+  <meta property="og:site_name" content="JG DigitalHub">
   <meta property="og:title" content="Why I Build Every Client Site With Elementor Pro (And When I Don't)">
   <meta property="og:description" content="An honest take on Elementor Pro after 50+ WordPress builds — including the edge cases where I reach for something else.">
   <meta property="og:type" content="article">
+  <meta property="og:url" content="https://jgdigitalhub.com/blog/elementor-pro-honest-review.html">
+  <meta property="og:image" content="https://jgdigitalhub.com/assets/why-i-build-every-client-with-elementorpro_featured-image.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Why I Build Every Client Site With Elementor Pro (And When I Don't)">
+  <meta name="twitter:description" content="An honest take on Elementor Pro after 50+ WordPress builds — including the edge cases where I reach for something else.">
+  <meta name="twitter:image" content="https://jgdigitalhub.com/assets/why-i-build-every-client-with-elementorpro_featured-image.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/webp" href="../assets/joel-gacho-favicon.webp">
   <link rel="apple-touch-icon" href="../assets/joel-gacho-favicon.webp">
   <link rel="stylesheet" href="../css/style.css?v=24">
+
+  <!-- ═══ ARTICLE SCHEMA ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://jgdigitalhub.com/blog/elementor-pro-honest-review.html" },
+    "headline": "Why I Build Every Client Site With Elementor Pro (And When I Don't)",
+    "description": "An honest review of Elementor Pro after 50+ WordPress builds — what it does brilliantly, where it falls short, and the edge cases where I reach for something else.",
+    "image": "https://jgdigitalhub.com/assets/why-i-build-every-client-with-elementorpro_featured-image.webp",
+    "datePublished": "2026-05-02",
+    "author": { "@type": "Person", "name": "Joel B. Gacho", "url": "https://jgdigitalhub.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "JG DigitalHub",
+      "logo": { "@type": "ImageObject", "url": "https://jgdigitalhub.com/assets/logo_JG.png" }
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -125,21 +151,21 @@
             <div class="post-step">
               <div class="post-step__num">1</div>
               <div class="post-step__content">
-                <h4>Page speed overhead</h4>
+                <h3>Page speed overhead</h3>
                 <p>Elementor loads its own CSS and JS on every page — typically 150–250KB of assets that your theme doesn't need. On a shared hosting plan without caching, this is noticeable. My fix: WP Rocket + Cloudflare CDN + Elementor's "Improved Asset Loading" setting. On a properly configured server, the difference is marginal. On budget hosting, it's real.</p>
               </div>
             </div>
             <div class="post-step">
               <div class="post-step__num">2</div>
               <div class="post-step__content">
-                <h4>Lock-in</h4>
+                <h3>Lock-in</h3>
                 <p>If you deactivate Elementor, your content becomes a sea of shortcode. Your pages don't break completely — the text is still there — but all your styling and layout disappears. This is the fundamental tradeoff of any page builder. I mitigate it by documenting the design system and keeping theme-level styles clean, but it's worth understanding before you commit.</p>
               </div>
             </div>
             <div class="post-step">
               <div class="post-step__num">3</div>
               <div class="post-step__content">
-                <h4>Editor performance on complex pages</h4>
+                <h3>Editor performance on complex pages</h3>
                 <p>Pages with 80+ sections, parallax animations, and nested containers can start to feel sluggish in the editor — especially on mid-range hardware. I haven't had this happen on sites with under 40 sections, but for large e-commerce landing pages, the editor can lag. Save frequently.</p>
               </div>
             </div>
@@ -222,11 +248,11 @@
           <div class="post-share">
             <p class="post-share__title">Share This Post</p>
             <div class="post-share__btns">
-              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://joelgacho.com/blog/elementor-pro-honest-review.html" target="_blank" rel="noopener noreferrer" class="share-btn">
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jgdigitalhub.com/blog/elementor-pro-honest-review.html" target="_blank" rel="noopener noreferrer" class="share-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 Share on LinkedIn
               </a>
-              <a href="https://twitter.com/intent/tweet?text=Why%20I%20Build%20Every%20Client%20Site%20With%20Elementor%20Pro&url=https://joelgacho.com/blog/elementor-pro-honest-review.html" target="_blank" rel="noopener noreferrer" class="share-btn">
+              <a href="https://twitter.com/intent/tweet?text=Why%20I%20Build%20Every%20Client%20Site%20With%20Elementor%20Pro&url=https://jgdigitalhub.com/blog/elementor-pro-honest-review.html" target="_blank" rel="noopener noreferrer" class="share-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.629zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 Share on X
               </a>

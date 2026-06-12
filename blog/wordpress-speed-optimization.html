@@ -3,19 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5 Reasons Your WordPress Site Is Slow | Joel Gacho Blog</title>
+  <title>5 Reasons Your WordPress Site Is Slow | JG DigitalHub Blog</title>
   <meta name="description" content="Discover the 5 most common reasons WordPress sites are slow — and the practical fixes I use to boost client PageSpeed scores by 40%.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://joelgacho.com/blog/wordpress-speed-optimization.html">
+  <link rel="canonical" href="https://jgdigitalhub.com/blog/wordpress-speed-optimization.html">
+  <meta property="og:site_name" content="JG DigitalHub">
   <meta property="og:title" content="5 Reasons Your WordPress Site Is Slow (And How to Fix Them)">
   <meta property="og:description" content="The 5 most common culprits behind slow WordPress sites — and how to fix each one.">
   <meta property="og:type" content="article">
+  <meta property="og:url" content="https://jgdigitalhub.com/blog/wordpress-speed-optimization.html">
+  <meta property="og:image" content="https://jgdigitalhub.com/assets/5%20Reasons%20your%20website%20is%20slow-Featured-image.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="5 Reasons Your WordPress Site Is Slow (And How to Fix Them)">
+  <meta name="twitter:description" content="The 5 most common culprits behind slow WordPress sites — and how to fix each one.">
+  <meta name="twitter:image" content="https://jgdigitalhub.com/assets/5%20Reasons%20your%20website%20is%20slow-Featured-image.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/webp" href="../assets/joel-gacho-favicon.webp">
   <link rel="apple-touch-icon" href="../assets/joel-gacho-favicon.webp">
   <link rel="stylesheet" href="../css/style.css?v=24">
+
+  <!-- ═══ ARTICLE SCHEMA ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://jgdigitalhub.com/blog/wordpress-speed-optimization.html" },
+    "headline": "5 Reasons Your WordPress Site Is Slow (And How to Fix Them)",
+    "description": "Discover the 5 most common reasons WordPress sites are slow — and the practical fixes I use to boost client PageSpeed scores by 40%.",
+    "image": "https://jgdigitalhub.com/assets/5%20Reasons%20your%20website%20is%20slow-Featured-image.webp",
+    "datePublished": "2026-05-20",
+    "author": { "@type": "Person", "name": "Joel B. Gacho", "url": "https://jgdigitalhub.com/" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "JG DigitalHub",
+      "logo": { "@type": "ImageObject", "url": "https://jgdigitalhub.com/assets/logo_JG.png" }
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -113,21 +139,21 @@
             <div class="post-step">
               <div class="post-step__num">1</div>
               <div class="post-step__content">
-                <h4>Convert to WebP</h4>
+                <h3>Convert to WebP</h3>
                 <p>WebP images are 25–35% smaller than JPEG with the same visual quality. Use a plugin like <strong>ShortPixel</strong> or <strong>Imagify</strong> to bulk-convert on upload.</p>
               </div>
             </div>
             <div class="post-step">
               <div class="post-step__num">2</div>
               <div class="post-step__content">
-                <h4>Add lazy loading</h4>
+                <h3>Add lazy loading</h3>
                 <p>Add <code>loading="lazy"</code> to every <code>&lt;img&gt;</code> below the fold. WordPress 5.5+ does this automatically, but always verify your theme isn't overriding it.</p>
               </div>
             </div>
             <div class="post-step">
               <div class="post-step__num">3</div>
               <div class="post-step__content">
-                <h4>Set correct dimensions</h4>
+                <h3>Set correct dimensions</h3>
                 <p>Never upload a 4000×3000px image when it displays at 800×600px. Resize before upload, or use Elementor's built-in image size controls.</p>
               </div>
             </div>
@@ -164,21 +190,21 @@
             <div class="post-step">
               <div class="post-step__num">1</div>
               <div class="post-step__content">
-                <h4>Defer non-critical JS</h4>
+                <h3>Defer non-critical JS</h3>
                 <p>Add <code>defer</code> or <code>async</code> to scripts that don't need to run before the page renders. WP Rocket handles this automatically.</p>
               </div>
             </div>
             <div class="post-step">
               <div class="post-step__num">2</div>
               <div class="post-step__content">
-                <h4>Minify CSS and JS</h4>
+                <h3>Minify CSS and JS</h3>
                 <p>Remove whitespace and comments from stylesheets and scripts. Most caching plugins include a minification option — enable it and test thoroughly.</p>
               </div>
             </div>
             <div class="post-step">
               <div class="post-step__num">3</div>
               <div class="post-step__content">
-                <h4>Load Elementor CSS inline</h4>
+                <h3>Load Elementor CSS inline</h3>
                 <p>In Elementor → Settings → Advanced, enable "Improved Asset Loading" and set CSS Print Method to "Internal Embedding" for pages with few elements.</p>
               </div>
             </div>
@@ -239,11 +265,11 @@
           <div class="post-share">
             <p class="post-share__title">Share This Post</p>
             <div class="post-share__btns">
-              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://joelgacho.com/blog/wordpress-speed-optimization.html" target="_blank" rel="noopener noreferrer" class="share-btn">
+              <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jgdigitalhub.com/blog/wordpress-speed-optimization.html" target="_blank" rel="noopener noreferrer" class="share-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                 Share on LinkedIn
               </a>
-              <a href="https://twitter.com/intent/tweet?text=5%20Reasons%20Your%20WordPress%20Site%20Is%20Slow%20%E2%80%94%20and%20How%20to%20Fix%20Them&url=https://joelgacho.com/blog/wordpress-speed-optimization.html" target="_blank" rel="noopener noreferrer" class="share-btn">
+              <a href="https://twitter.com/intent/tweet?text=5%20Reasons%20Your%20WordPress%20Site%20Is%20Slow%20%E2%80%94%20and%20How%20to%20Fix%20Them&url=https://jgdigitalhub.com/blog/wordpress-speed-optimization.html" target="_blank" rel="noopener noreferrer" class="share-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.629zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 Share on X
               </a>
