@@ -8,9 +8,15 @@
   </url>
   <url>
     <loc>https://jgdigitalhub.com/blog.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jgdigitalhub.com/blog/local-seo-bacolod.html</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jgdigitalhub.com/blog/wordpress-speed-optimization.html</loc>
