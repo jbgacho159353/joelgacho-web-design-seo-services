@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "indexnow": "node scripts/indexnow.js"
+  },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.102.0",
     "resend": "^6.12.4"
