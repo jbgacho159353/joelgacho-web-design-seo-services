@@ -248,7 +248,7 @@ strong { color: var(--text-primary); font-weight: 600; }
   height: 74px;
   gap: 20px;
 }
-.nav__logo img { height: auto; width: 320px; max-width: 65vw; }
+.nav__logo img { height: auto; width: 260px; max-width: 65vw; }
 
 .nav__links {
   display: flex;
@@ -1652,7 +1652,7 @@ a.contact__detail-value:hover { color: var(--accent); }
   transition: opacity 0.2s;
 }
 .footer__logo-wrap:hover { opacity: 1; }
-.footer__logo-wrap img { height: 56px; width: auto; }
+.footer__logo-wrap img { height: 48px; width: auto; }
 
 .footer__tagline {
   font-size: 0.875rem;
