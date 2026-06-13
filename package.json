@@ -6,5 +6,8 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.102.0",
     "resend": "^6.12.4"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.1"
   }
 }
