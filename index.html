@@ -43,13 +43,11 @@
     />
     <meta name="twitter:image" content="https://jgdigitalhub.com/assets/Hero-image.webp" />
 
-    <!-- ═══ GOOGLE FONTS ═══ -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@400;500;600&family=Rajdhani:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- ═══ FONTS — self-hosted woff2 (@font-face lives in the stylesheet).
+         Preloaded so text renders in the right face at first paint (no swap CLS). ═══ -->
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/syne-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/rajdhani-700-latin.woff2" crossorigin />
 
     <!-- ═══ FAVICON ═══ -->
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
@@ -57,11 +55,18 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- ═══ PRELOAD LCP HERO IMAGE ═══ -->
-    <link rel="preload" as="image" href="assets/Hero-image.webp" fetchpriority="high" />
+    <!-- ═══ PRELOAD LCP HERO IMAGE — responsive, mirrors the <img> srcset ═══ -->
+    <link
+      rel="preload"
+      as="image"
+      href="assets/Hero-image-480.webp"
+      imagesrcset="assets/Hero-image-480.webp 480w, assets/Hero-image-768.webp 768w, assets/Hero-image.webp 1024w"
+      imagesizes="(max-width: 1024px) 88vw, 420px"
+      fetchpriority="high"
+    />
 
-    <!-- ═══ STYLESHEET ═══ -->
-    <link rel="stylesheet" href="css/style.css?v=25" />
+    <!-- ═══ STYLESHEET — minified build (source: css/style.css, npm run build:css) ═══ -->
+    <link rel="stylesheet" href="css/style.min.css?v=1" />
 
     <!-- ═══ GOOGLE ANALYTICS 4 — replace G-XXXXXXXXXX with your Measurement ID ═══ -->
     <!--
@@ -192,18 +197,18 @@
       <nav class="nav container" aria-label="Main navigation">
         <a href="#hero" class="nav__logo" aria-label="Digital Solutions — Back to top">
           <img
-            src="assets/logo_JG.png"
+            src="assets/logo_JG.webp"
             alt="Joel Gacho"
             class="logo logo--dark"
-            width="50"
-            height="10"
+            width="512"
+            height="100"
           />
           <img
-            src="assets/logo_JG.png"
+            src="assets/logo_JG.webp"
             alt="Joel Gacho"
             class="logo logo--light"
-            width="50"
-            height="10"
+            width="512"
+            height="100"
           />
         </a>
 
@@ -277,7 +282,7 @@
         </div>
       </nav>
 
-      <div class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+      <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
         <ul class="mobile-menu__links" role="list">
           <li><a href="#about" class="mobile-menu__link">About</a></li>
           <li><a href="#services" class="mobile-menu__link">Services</a></li>
@@ -319,14 +324,13 @@
 
             <!-- Typing animation: cycles through Joel's roles -->
             <p class="hero__role-line">
-              <span class="hero__typed-wrap">
-                <span
-                  class="hero__typed"
-                  id="typedRole"
-                  aria-live="polite"
-                  aria-label="WordPress Web Designer"
-                ></span
-                ><span class="hero__cursor" aria-hidden="true">|</span>
+              <span class="sr-only"
+                >WordPress Web Designer, SEO Specialist, Elementor Pro Expert,
+                Conversion Optimiser</span
+              >
+              <span class="hero__typed-wrap" aria-hidden="true">
+                <span class="hero__typed" id="typedRole"></span
+                ><span class="hero__cursor">|</span>
               </span>
             </p>
 
@@ -505,6 +509,8 @@
               </div>
               <img
                 src="assets/Hero-image.webp"
+                srcset="assets/Hero-image-480.webp 480w, assets/Hero-image-768.webp 768w, assets/Hero-image.webp 1024w"
+                sizes="(max-width: 1024px) 88vw, 420px"
                 alt="Joel B. Gacho — WordPress Web Designer and SEO Specialist based in Bacolod City, Philippines"
                 class="hero__img"
                 width="460"
@@ -1159,38 +1165,34 @@
           </div>
           <div
             class="projects__filter"
-            role="tablist"
+            role="group"
             aria-label="Filter projects by category"
           >
             <button
               class="filter-btn is-active"
               data-filter="all"
-              role="tab"
-              aria-selected="true"
+              aria-pressed="true"
             >
               All
             </button>
             <button
               class="filter-btn"
               data-filter="wordpress"
-              role="tab"
-              aria-selected="false"
+              aria-pressed="false"
             >
               WordPress
             </button>
             <button
               class="filter-btn"
               data-filter="ai-built"
-              role="tab"
-              aria-selected="false"
+              aria-pressed="false"
             >
               AI-Built
             </button>
             <button
               class="filter-btn"
               data-filter="seo"
-              role="tab"
-              aria-selected="false"
+              aria-pressed="false"
             >
               SEO Case Studies
             </button>
@@ -1213,6 +1215,8 @@
                 <div class="project-card__thumb">
                   <img
                     src="assets/listifyph_web-app.webp"
+                    srcset="assets/listifyph_web-app-640.webp 640w, assets/listifyph_web-app.webp 1537w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 440px"
                     alt="ListifyPH SaaS web app screenshot"
                     loading="lazy"
                     decoding="async"
@@ -1262,6 +1266,8 @@
                 <div class="project-card__thumb">
                   <img
                     src="assets/Taxis and Airport Services.webp"
+                    srcset="assets/Taxis%20and%20Airport%20Services-640.webp 640w, assets/Taxis%20and%20Airport%20Services.webp 1537w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 440px"
                     alt="Taxis &amp; Airport Services — luxury BMW chauffeur and airport transfer booking website screenshot"
                     loading="lazy"
                     decoding="async"
@@ -1360,6 +1366,8 @@
                 <div class="project-card__thumb">
                   <img
                     src="assets/Shoppy-ecom-store.webp"
+                    srcset="assets/Shoppy-ecom-store-640.webp 640w, assets/Shoppy-ecom-store.webp 1536w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 440px"
                     alt="Shoppy E-Commerce Store website screenshot"
                     loading="lazy"
                     decoding="async"
@@ -1407,6 +1415,8 @@
                 <div class="project-card__thumb">
                   <img
                     src="assets/iglowShop-ecom-store.webp"
+                    srcset="assets/iglowShop-ecom-store-640.webp 640w, assets/iglowShop-ecom-store.webp 1536w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 440px"
                     alt="iGlowShop e-commerce store website screenshot"
                     loading="lazy"
                     decoding="async"
@@ -1454,6 +1464,8 @@
                 <div class="project-card__thumb">
                   <img
                     src="assets/SEO%20Case%20studies.webp"
+                    srcset="assets/SEO%20Case%20studies-640.webp 640w, assets/SEO%20Case%20studies.webp 1536w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 440px"
                     alt="Local SEO Case Study results screenshot"
                     loading="lazy"
                     decoding="async"
@@ -1502,6 +1514,8 @@
                 <div class="project-card__thumb">
                   <img
                     src="assets/babu88-news-site.webp"
+                    srcset="assets/babu88-news-site-640.webp 640w, assets/babu88-news-site.webp 1536w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 440px"
                     alt="Babu88 Sports casino news site screenshot"
                     loading="lazy"
                     decoding="async"
@@ -1549,6 +1563,8 @@
                 <div class="project-card__thumb">
                   <img
                     src="assets/babu88-official.webp"
+                    srcset="assets/babu88-official-640.webp 640w, assets/babu88-official.webp 1536w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 440px"
                     alt="Babu88 Official PBN website screenshot"
                     loading="lazy"
                     decoding="async"
@@ -1596,6 +1612,8 @@
                 <div class="project-card__thumb">
                   <img
                     src="assets/color-palette-web-app.webp"
+                    srcset="assets/color-palette-web-app-640.webp 640w, assets/color-palette-web-app.webp 1381w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 440px"
                     alt="Color Palette Explorer web app screenshot"
                     loading="lazy"
                     decoding="async"
@@ -1643,6 +1661,8 @@
                 <div class="project-card__thumb">
                   <img
                     src="assets/babu-spin-wheel.webp"
+                    srcset="assets/babu-spin-wheel-640.webp 640w, assets/babu-spin-wheel.webp 1402w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 440px"
                     alt="Babu88 Spin Wheel landing page screenshot"
                     loading="lazy"
                     decoding="async"
@@ -1690,6 +1710,8 @@
                 <div class="project-card__thumb">
                   <img
                     src="assets/enrollment-system-web-app.webp"
+                    srcset="assets/enrollment-system-web-app-640.webp 640w, assets/enrollment-system-web-app.webp 1536w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 440px"
                     alt="School Enrollment System web app screenshot"
                     loading="lazy"
                     decoding="async"
@@ -1784,6 +1806,8 @@
                 <div class="project-card__thumb">
                   <img
                     src="assets/lucky%20bangla%20agent%20site.webp"
+                    srcset="assets/lucky%20bangla%20agent%20site-640.webp 640w, assets/lucky%20bangla%20agent%20site.webp 1536w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 440px"
                     alt="Lucky Bangla casino agent site screenshot"
                     loading="lazy"
                     decoding="async"
@@ -1868,9 +1892,14 @@
                 <div class="blog-card__thumb">
                   <img
                     src="assets/local-seo-bacolod-guide-jgdigitalhub-featured-image.webp"
+                    srcset="assets/local-seo-bacolod-guide-jgdigitalhub-featured-image-640.webp 640w, assets/local-seo-bacolod-guide-jgdigitalhub-featured-image.webp 1200w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 430px"
+                    width="1200"
+                    height="800"
                     alt="Local SEO Bacolod guide for small business owners by JG DigitalHub"
                     class="blog-card__img"
                     loading="lazy"
+                    decoding="async"
                   />
                   <span class="blog-card__cat">SEO</span>
                 </div>
@@ -1956,9 +1985,14 @@
                 <div class="blog-card__thumb">
                   <img
                     src="assets/5 Reasons your website is slow-Featured-image.webp"
+                    srcset="assets/5%20Reasons%20your%20website%20is%20slow-Featured-image-640.webp 640w, assets/5%20Reasons%20your%20website%20is%20slow-Featured-image.webp 1536w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 430px"
+                    width="1536"
+                    height="1024"
                     alt="5 Reasons Your WordPress Site Is Slow"
                     class="blog-card__img"
                     loading="lazy"
+                    decoding="async"
                   />
                   <span class="blog-card__cat">WordPress</span>
                 </div>
@@ -2044,9 +2078,14 @@
                 <div class="blog-card__thumb">
                   <img
                     src="assets/the-one-page-seo checklist_featured-image.webp"
+                    srcset="assets/the-one-page-seo%20checklist_featured-image-640.webp 640w, assets/the-one-page-seo%20checklist_featured-image.webp 1536w"
+                    sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 430px"
+                    width="1536"
+                    height="1024"
                     alt="The On-Page SEO Checklist Every Local Business Website Needs"
                     class="blog-card__img"
                     loading="lazy"
+                    decoding="async"
                   />
                   <span class="blog-card__cat">SEO</span>
                 </div>
@@ -2223,10 +2262,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/male-US-client-2.webp"
+                      src="assets/male-US-client-2-100.webp"
                       alt="Tyler Brooks"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Tyler Brooks</p>
@@ -2309,10 +2351,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/male-US-client-3.webp"
+                      src="assets/male-US-client-3-100.webp"
                       alt="Ryan Mitchell"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Ryan Mitchell</p>
@@ -2395,10 +2440,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/Uk-Female-client.webp"
+                      src="assets/Uk-Female-client-100.webp"
                       alt="Emma Clarke"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Emma Clarke</p>
@@ -2413,7 +2461,7 @@
 
                 <!-- Card 1 — Ali Age -->
                 <div class="testi-card">
-                  <div class="testi-stars" aria-label="5 out of 5 stars">
+                  <div class="testi-stars" role="img" aria-label="5 out of 5 stars">
                     <svg
                       class="testi-star"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2485,10 +2533,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/Ali Age.webp"
+                      src="assets/Ali Age-100.webp"
                       alt="Ali Age"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Ali Age</p>
@@ -2499,7 +2550,7 @@
 
                 <!-- Card 2 — Jin Grey -->
                 <div class="testi-card">
-                  <div class="testi-stars" aria-label="5 out of 5 stars">
+                  <div class="testi-stars" role="img" aria-label="5 out of 5 stars">
                     <svg
                       class="testi-star"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2570,10 +2621,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/Jin Grey.webp"
+                      src="assets/Jin Grey-100.webp"
                       alt="Jin Grey"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Jin Grey</p>
@@ -2584,7 +2638,7 @@
 
                 <!-- Card 3 — Joseph Olid -->
                 <div class="testi-card">
-                  <div class="testi-stars" aria-label="5 out of 5 stars">
+                  <div class="testi-stars" role="img" aria-label="5 out of 5 stars">
                     <svg
                       class="testi-star"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2656,10 +2710,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/Joseph Olid.webp"
+                      src="assets/Joseph Olid-100.webp"
                       alt="Joseph Olid"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Joseph Olid</p>
@@ -2674,7 +2731,7 @@
 
                 <!-- Card 4 — Maria Santos -->
                 <div class="testi-card">
-                  <div class="testi-stars" aria-label="5 out of 5 stars">
+                  <div class="testi-stars" role="img" aria-label="5 out of 5 stars">
                     <svg
                       class="testi-star"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2746,10 +2803,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/female-filipina-client.webp"
+                      src="assets/female-filipina-client-100.webp"
                       alt="Maria Santos"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Maria Santos</p>
@@ -2762,7 +2822,7 @@
 
                 <!-- Card 5 — Kevin Lim -->
                 <div class="testi-card">
-                  <div class="testi-stars" aria-label="5 out of 5 stars">
+                  <div class="testi-stars" role="img" aria-label="5 out of 5 stars">
                     <svg
                       class="testi-star"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2833,10 +2893,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/male-singaporean-client.webp"
+                      src="assets/male-singaporean-client-100.webp"
                       alt="Kevin Lim"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Kevin Lim</p>
@@ -2849,7 +2912,7 @@
 
                 <!-- Card 6 — Marcus Johnson -->
                 <div class="testi-card">
-                  <div class="testi-stars" aria-label="5 out of 5 stars">
+                  <div class="testi-stars" role="img" aria-label="5 out of 5 stars">
                     <svg
                       class="testi-star"
                       xmlns="http://www.w3.org/2000/svg"
@@ -2920,10 +2983,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/male-US-client-1.webp"
+                      src="assets/male-US-client-1-100.webp"
                       alt="Marcus Johnson"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Marcus Johnson</p>
@@ -2938,7 +3004,7 @@
 
                 <!-- Card 7 — Tyler Brooks -->
                 <div class="testi-card">
-                  <div class="testi-stars" aria-label="5 out of 5 stars">
+                  <div class="testi-stars" role="img" aria-label="5 out of 5 stars">
                     <svg
                       class="testi-star"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3009,10 +3075,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/male-US-client-2.webp"
+                      src="assets/male-US-client-2-100.webp"
                       alt="Tyler Brooks"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Tyler Brooks</p>
@@ -3025,7 +3094,7 @@
 
                 <!-- Card 8 — Ryan Mitchell -->
                 <div class="testi-card">
-                  <div class="testi-stars" aria-label="5 out of 5 stars">
+                  <div class="testi-stars" role="img" aria-label="5 out of 5 stars">
                     <svg
                       class="testi-star"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3096,10 +3165,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/male-US-client-3.webp"
+                      src="assets/male-US-client-3-100.webp"
                       alt="Ryan Mitchell"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Ryan Mitchell</p>
@@ -3112,7 +3184,7 @@
 
                 <!-- Card 9 — Emma Clarke -->
                 <div class="testi-card">
-                  <div class="testi-stars" aria-label="5 out of 5 stars">
+                  <div class="testi-stars" role="img" aria-label="5 out of 5 stars">
                     <svg
                       class="testi-star"
                       xmlns="http://www.w3.org/2000/svg"
@@ -3183,10 +3255,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/Uk-Female-client.webp"
+                      src="assets/Uk-Female-client-100.webp"
                       alt="Emma Clarke"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Emma Clarke</p>
@@ -3272,10 +3347,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/Ali Age.webp"
+                      src="assets/Ali Age-100.webp"
                       alt="Ali Age"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Ali Age</p>
@@ -3356,10 +3434,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/Jin Grey.webp"
+                      src="assets/Jin Grey-100.webp"
                       alt="Jin Grey"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Jin Grey</p>
@@ -3441,10 +3522,13 @@
                   </p>
                   <div class="testi-person">
                     <img
-                      src="assets/Joseph Olid.webp"
+                      src="assets/Joseph Olid-100.webp"
                       alt="Joseph Olid"
                       class="testi-avatar"
+                      width="100"
+                      height="100"
                       loading="lazy"
+                      decoding="async"
                     />
                     <div>
                       <p class="testi-name">Joseph Olid</p>
@@ -4353,20 +4437,20 @@
                 aria-label="Back to top — Digital Solutions"
               >
                 <img
-                  src="assets/logo_JG.png"
+                  src="assets/logo_JG.webp"
                   alt="Joel Gacho"
                   class="logo logo--dark"
-                  width="70"
-                  height="10"
+                  width="512"
+                  height="100"
                   loading="lazy"
                   decoding="async"
                 />
                 <img
-                  src="assets/logo_JG.png"
+                  src="assets/logo_JG.webp"
                   alt="Joel Gacho"
                   class="logo logo--light"
-                  width="70"
-                  height="10"
+                  width="512"
+                  height="100"
                   loading="lazy"
                   decoding="async"
                 />
@@ -4520,7 +4604,7 @@
           </p>
           <p class="footer__made">
             Built with
-            <span class="footer__heart" aria-label="love">&hearts;</span> in
+            <span class="footer__heart" role="img" aria-label="love">&hearts;</span> in
             Bacolod City
           </p>
           <a href="#hero" class="footer__back-top" aria-label="Back to top">
@@ -4532,7 +4616,7 @@
       </div>
     </footer>
 
-    <script src="js/main.js?v=28" defer></script>
+    <script src="js/main.js?v=29" defer></script>
 
     <link rel="stylesheet" href="/chatbot/chatbot.css">
     <script defer src="/chatbot/chatbot.js"></script>

@@ -191,9 +191,11 @@ No JavaScript is needed to swap colours — the CSS handles everything.
 
 ## Performance Notes
 
-- Google Fonts: `preconnect` hints + `display=swap` — no render blocking
-- Hero image: `fetchpriority="high"` — loads first
-- All other images: `loading="lazy" decoding="async"`
+- Fonts: self-hosted woff2 in `assets/fonts/` (`@font-face` in style.css, `display=swap`),
+  preloaded in `<head>` — no Google Fonts request, no render-blocking third-party CSS
+- Hero image: `fetchpriority="high"` + responsive `srcset` (480/768/1024w), preload mirrors it
+- All other images: `loading="lazy" decoding="async"`, explicit width/height, WebP with
+  640w srcset variants for card thumbnails, 100px variants for avatars
 - JS: `<script defer>` — non-blocking
-- CSS: single file, no unused frameworks
+- CSS: pages load `css/style.min.css` — regenerate after editing style.css via `npm run build:css`
 - No jQuery, no CSS framework — pure vanilla stack

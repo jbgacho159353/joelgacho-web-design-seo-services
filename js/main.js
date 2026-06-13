@@ -63,7 +63,6 @@ if (typedEl) {
 
   function showText(text) {
     typedEl.textContent = text;
-    typedEl.setAttribute('aria-label', text);
   }
 
   // Measure the current text's natural pixel width, without animating
@@ -342,9 +341,9 @@ applyCollapse('all');
 
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
-    filterBtns.forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-selected', 'false'); });
+    filterBtns.forEach(b => { b.classList.remove('is-active'); b.setAttribute('aria-pressed', 'false'); });
     btn.classList.add('is-active');
-    btn.setAttribute('aria-selected', 'true');
+    btn.setAttribute('aria-pressed', 'true');
     applyCollapse(btn.dataset.filter);
   });
 });

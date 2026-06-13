@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "indexnow": "node scripts/indexnow.js"
+    "indexnow": "node scripts/indexnow.js",
+    "build:css": "node scripts/minify-css.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.102.0",
