@@ -294,6 +294,7 @@ faqItems.forEach(item => {
 
 /* ─────────────────────────────────────────────────────
    11. PROJECT CATEGORY FILTER + LOAD MORE
+   Guards: loadMoreWrap/loadMoreBtn only exist on the homepage.
 ───────────────────────────────────────────────────── */
 const filterBtns   = document.querySelectorAll('.projects__filter .filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
@@ -303,6 +304,7 @@ const PAGE_SIZE    = 9;
 
 function applyCollapse(filter) {
   const cards = [...projectCards];
+  const grid  = document.querySelector('.projects__grid');
 
   if (filter === 'all') {
     let shown = 0;
@@ -316,7 +318,7 @@ function applyCollapse(filter) {
       }
     });
     const hasMore = cards.some(c => c.classList.contains('project-card--collapsed'));
-    loadMoreWrap.style.display = hasMore ? 'block' : 'none';
+    if (loadMoreWrap) loadMoreWrap.style.display = hasMore ? 'block' : 'none';
   } else {
     cards.forEach(card => {
       card.classList.remove('project-card--collapsed');
@@ -326,14 +328,14 @@ function applyCollapse(filter) {
         card.classList.add('project-card--hidden');
       }
     });
-    loadMoreWrap.style.display = 'none';
+    if (loadMoreWrap) loadMoreWrap.style.display = 'none';
   }
 
   const visibleCount = cards.filter(c =>
     !c.classList.contains('project-card--hidden') &&
     !c.classList.contains('project-card--collapsed')
   ).length;
-  document.querySelector('.projects__grid').classList.toggle('projects__grid--solo', visibleCount === 1);
+  if (grid) grid.classList.toggle('projects__grid--solo', visibleCount === 1);
 }
 
 // Initialise on page load
@@ -349,10 +351,12 @@ filterBtns.forEach(btn => {
 });
 
 // Load More — reveal all remaining cards
-loadMoreBtn.addEventListener('click', () => {
-  projectCards.forEach(card => card.classList.remove('project-card--collapsed'));
-  loadMoreWrap.style.display = 'none';
-});
+if (loadMoreBtn) {
+  loadMoreBtn.addEventListener('click', () => {
+    projectCards.forEach(card => card.classList.remove('project-card--collapsed'));
+    if (loadMoreWrap) loadMoreWrap.style.display = 'none';
+  });
+}
 
 
 /* ─────────────────────────────────────────────────────
