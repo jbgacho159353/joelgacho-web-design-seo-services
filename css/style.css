@@ -2422,6 +2422,151 @@ a.contact__detail-value:hover { color: var(--accent); }
 
 
 /* ─────────────────────────────────────────────────────
+   SEO PROCESS SECTION
+───────────────────────────────────────────────────── */
+
+/* Gradient text utility — used on heading emphasis spans */
+.gradient-text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.seo-process { background: var(--bg-surface); }
+
+/* Wrapper holds the grid + the decorative connector line */
+.seo-process__grid-wrap { position: relative; }
+
+/* Horizontal connector line that passes behind the badges (desktop only) */
+.seo-process__connector {
+  display: none;
+}
+
+.seo-process__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.seo-process__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 24px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+/* Gradient top bar revealed on hover */
+.seo-process__card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.38s ease;
+}
+
+.seo-process__card:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-hover);
+  box-shadow: 0 16px 48px rgba(248, 94, 0, 0.12);
+}
+.seo-process__card:hover::before { transform: scaleX(1); }
+
+[data-theme="dark"] .seo-process__card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+  border-color: rgba(255,255,255,0.08);
+}
+[data-theme="dark"] .seo-process__card:hover {
+  border-color: rgba(248, 94, 0, 0.65);
+  box-shadow: 0 16px 48px rgba(248, 94, 0, 0.18);
+}
+
+/* Numbered badge */
+.seo-process__num {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: var(--on-accent);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 6px var(--accent-glow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.seo-process__card:hover .seo-process__num {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 6px var(--accent-glow), 0 8px 24px rgba(248, 94, 0, 0.38);
+}
+
+.seo-process__title {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+.seo-process__desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Desktop: show connector line */
+@media (min-width: 769px) {
+  .seo-process__connector {
+    display: block;
+    position: absolute;
+    /* badge center = card padding-top(36px) + badge-radius(28px) = 64px */
+    top: 64px;
+    /* span from center of col 1 to center of col 4:
+       col-width = (100%-72px)/4, col-center = (100%-72px)/8 from each edge */
+    left: calc((100% - 72px) / 8);
+    right: calc((100% - 72px) / 8);
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--border-hover) 8%,
+      var(--border-hover) 92%,
+      transparent 100%
+    );
+    z-index: 0;
+  }
+}
+
+/* Tablet: 2-column, no connector */
+@media (max-width: 1024px) {
+  .seo-process__grid { grid-template-columns: repeat(2, 1fr); }
+  .seo-process__connector { display: none !important; }
+}
+
+/* Mobile: single column */
+@media (max-width: 768px) {
+  .seo-process__grid { grid-template-columns: 1fr; }
+}
+
+
+/* ─────────────────────────────────────────────────────
    19. FAQ SECTION
 ───────────────────────────────────────────────────── */
 .faq { background: #070B13; }
