@@ -2327,17 +2327,8 @@ a.contact__detail-value:hover { color: var(--accent); }
   flex: 1;
   margin-bottom: 24px;
 }
-.how-card__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--accent);
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: gap var(--transition);
-}
-.how-card__link:hover { gap: 10px; }
+.how__grid .pricing-card { cursor: default; }
+.how__grid .pricing-card:hover { transform: none; box-shadow: 0 8px 32px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.28); }
 @media (max-width: 768px) {
   .how__grid { grid-template-columns: 1fr; }
 }
