@@ -3410,7 +3410,33 @@ a.service-card { display: block; color: inherit; }
 .post-author__avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
 .post-author__name { font-size: 1rem; margin-bottom: 4px; }
 .post-author__role { font-size: 0.78rem; color: var(--accent); font-weight: 600; margin-bottom: 10px; }
-.post-author__bio  { font-size: 0.875rem; line-height: 1.7; }
+.post-author__bio  { font-size: 0.875rem; line-height: 1.7; margin-bottom: 10px; }
+.post-author__link {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.post-author__link:hover { color: var(--accent-hover); }
+
+/* Breadcrumb navigation — added above page content, static (no CLS impact) */
+.breadcrumbs { padding: 18px 0 0; }
+.breadcrumbs__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.breadcrumbs__list li { display: flex; align-items: center; gap: 6px; }
+.breadcrumbs__list li:not(:last-child)::after { content: '/'; color: var(--border); }
+.breadcrumbs__list a { color: var(--text-secondary); }
+.breadcrumbs__list a:hover { color: var(--accent); }
+.breadcrumbs__list li[aria-current="page"] { color: var(--text-primary); font-weight: 600; }
 
 /* Sidebar TOC */
 .post-sidebar {

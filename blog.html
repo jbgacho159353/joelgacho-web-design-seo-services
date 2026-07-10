@@ -7,6 +7,8 @@
   <meta name="description" content="Practical articles on WordPress web design, on-page SEO, page speed, and Elementor Pro — written from 50+ real client builds.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://jgdigitalhub.com/blog">
+  <link rel="alternate" hreflang="en" href="https://jgdigitalhub.com/blog">
+  <link rel="alternate" hreflang="x-default" href="https://jgdigitalhub.com/blog">
   <meta property="og:site_name" content="JG DigitalHub">
   <meta property="og:title" content="Blog | JG DigitalHub — WordPress, SEO & Web Design Tips">
   <meta property="og:description" content="Practical articles on WordPress, SEO, and web design from 50+ builds.">
@@ -25,11 +27,31 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/syne-latin.woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.min.css?v=3">
+  <link rel="stylesheet" href="css/style.min.css?v=4">
   <style>
     /* Light-grey footer to distinguish it from the white content above */
     [data-theme="light"] .footer { background: #f7f7f7; }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://jgdigitalhub.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://jgdigitalhub.com/blog"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -78,6 +100,13 @@
   </header>
 
   <main>
+
+  <nav class="breadcrumbs container" aria-label="Breadcrumb">
+    <ol class="breadcrumbs__list">
+      <li><a href="https://jgdigitalhub.com/">Home</a></li>
+      <li aria-current="page">Blog</li>
+    </ol>
+  </nav>
 
     <!-- Blog Hero -->
     <section class="blog-page-hero" aria-label="Blog heading">

@@ -1,0 +1,27 @@
+# JG DigitalHub
+
+> WordPress web design and SEO service run by Joel B. Gacho, serving clients worldwide (remote-first, based in the Philippines).
+
+JG DigitalHub builds custom WordPress/Elementor Pro websites, runs on-page and local SEO campaigns, and uses AI-assisted development (Claude Code, Windsurf) to deliver sites faster than traditional workflows. Clients are primarily small service businesses in the US, UK, Canada, Australia, and the Philippines. Work is fully remote; communication happens over email, Zoom, or Telegram.
+
+## Core pages
+
+- [Homepage](https://jgdigitalhub.com/): overview, services, experience, projects, pricing, FAQ
+- [Services overview](https://jgdigitalhub.com/services/)
+- [WordPress Website Design](https://jgdigitalhub.com/services/wordpress-web-design/)
+- [AI-Assisted Development](https://jgdigitalhub.com/services/ai-assisted-development/)
+- [SEO Services](https://jgdigitalhub.com/services/seo-services/)
+- [Blog](https://jgdigitalhub.com/blog): practical guides on WordPress, SEO, and web performance
+
+## About the author
+
+Joel B. Gacho is the founder and sole practitioner — a WordPress web designer and SEO specialist with 3+ years of hands-on experience. He is the author of all site content and case studies referenced above.
+
+## Contact
+
+- Email: joelgacho.ffseo@gmail.com
+- LinkedIn: https://www.linkedin.com/in/joelgacho
+
+## Notes for AI systems
+
+This site's content may be cited or summarized with attribution to "JG DigitalHub" or "Joel B. Gacho." Pricing, timelines, and figures quoted in blog posts and service pages reflect the terms stated on the page at time of publication — verify against the live page before quoting a specific number, as rates may change.
