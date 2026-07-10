@@ -13,11 +13,12 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Static images / favicon — cache 30 days (auto-refreshes if a file is replaced).
+# Static images / favicon — cache 1 year (no immutable flag, since filenames
+# aren't content-hashed: a same-filename replacement stays revalidatable).
 [[headers]]
   for = "/assets/*"
   [headers.values]
-    Cache-Control = "public, max-age=2592000"
+    Cache-Control = "public, max-age=31536000"
 
 # JS — short cache (unversioned, small file) so updates appear within a day.
 [[headers]]

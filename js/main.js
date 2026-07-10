@@ -65,17 +65,6 @@ if (typedEl) {
     typedEl.textContent = text;
   }
 
-  // Measure the current text's natural pixel width, without animating
-  function naturalWidth() {
-    const prev = typedEl.style.transition;
-    typedEl.style.transition = 'none';
-    typedEl.style.width = 'auto';
-    const w = Math.ceil(typedEl.getBoundingClientRect().width);
-    typedEl.style.transition = prev;
-    return w;
-  }
-
-  // Set width; `instant` applies it with no transition (so the next change animates)
   function setWidth(px, instant) {
     if (!instant) { typedEl.style.width = px + 'px'; return; }
     const prev = typedEl.style.transition;
@@ -94,18 +83,31 @@ if (typedEl) {
       showText(roles[roleIdx]);
     }, HOLD);
   } else {
+    // Measure every role's natural pixel width once, up front. The recurring
+    // cycle below only ever *writes* style.width — it never reads a layout
+    // property back in the same task, so it can't force a synchronous reflow.
+    const prevTransition = typedEl.style.transition;
+    typedEl.style.transition = 'none';
+    const widths = roles.map(function (role) {
+      typedEl.textContent = role;
+      typedEl.style.width = 'auto';
+      return Math.ceil(typedEl.getBoundingClientRect().width);
+    });
+    typedEl.textContent = roles[0];
+    typedEl.style.width = widths[0] + 'px';
+    void typedEl.offsetWidth;
+    typedEl.style.transition = prevTransition;
+
     function cycleRole() {
-      // 1. Lock the current width, then let the cursor erase it from the right
-      setWidth(naturalWidth(), true);
+      // Erase the current role — box is already at widths[roleIdx], so this
+      // just animates it down to 0 (no measurement, no forced layout read).
       setWidth(0, false);
 
-      // 2. Once erased, swap text and reveal the next role from the left
+      // Once erased, swap text and reveal the next role from the left
       setTimeout(function () {
         roleIdx = (roleIdx + 1) % roles.length;
         showText(roles[roleIdx]);
-        const w = naturalWidth();
-        setWidth(0, true);
-        requestAnimationFrame(function () { setWidth(w, false); });
+        setWidth(widths[roleIdx], false);
       }, WIPE);
 
       setTimeout(cycleRole, WIPE * 2 + HOLD);
