@@ -276,6 +276,8 @@ faqItems.forEach(item => {
 
   btn.addEventListener('click', () => {
     const isOpen = item.classList.contains('is-open');
+    // Read scrollHeight before the "close all" writes below force a reflow to answer it.
+    const targetHeight = isOpen ? null : answer.scrollHeight + 'px';
 
     // Close all
     faqItems.forEach(i => {
@@ -288,7 +290,7 @@ faqItems.forEach(item => {
     if (!isOpen) {
       item.classList.add('is-open');
       btn.setAttribute('aria-expanded', 'true');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
+      answer.style.maxHeight = targetHeight;
     }
   });
 });
