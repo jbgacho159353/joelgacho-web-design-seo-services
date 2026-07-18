@@ -3332,6 +3332,9 @@ a.service-card { display: block; color: inherit; }
 
 /* Number step */
 .post-steps { display: flex; flex-direction: column; gap: 24px; margin: 28px 0; }
+
+/* Post FAQ (reuses .faq-item accordion, stacked instead of grid) */
+.post-faq { display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
 .post-step {
   display: flex;
   gap: 18px;
